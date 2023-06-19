@@ -1,14 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class AnimationAndMovementController : MonoBehaviour
 {
-    [SerializeField]
-    //private GameObject Player;
-
     PlayerInput playerInput;
 
     [SerializeField]
@@ -16,11 +12,8 @@ public class AnimationAndMovementController : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 3f;
 
-    Vector2 currentMovementInput;
-    Vector3 currentMovement;
-    Vector3 UnitMovement;
     Vector3 targetPosition;
-
+    
     private Camera mainCamera;
     private Coroutine coroutine;
     private InputAction touchPositionAction;
@@ -108,30 +101,15 @@ public class AnimationAndMovementController : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
     }
-    // Update is called once per frame
-    void Update( )
-    {
-            //handleRotation();
-            //handleAnimation();
-            //characterController.Move(currentMovement * Time.deltaTime);
-    }
 
     private void OnEnable()
     {
         touchPressAction.performed += onMovementInput;
-        //playerInput.CharacterControls.Enable();
-
     }
 
     private void OnDisable()
     {
         touchPressAction.performed -= onMovementInput;
-        //playerInput.CharacterControls.Disable();
-    }
-    public void Start()
-    {
-       
-
     }
 
     public void Shoot()
