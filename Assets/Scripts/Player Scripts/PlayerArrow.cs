@@ -6,12 +6,18 @@ using UnityEngine;
 public class PlayerArrow : MonoBehaviour
 {
     Vector3 pos;
+    [SerializeField] private PlayerStats stats;
+    public int damage = 50;
 
     private void LateUpdate()
     {
         checkForOutsideBoundary();
     }
 
+    private void Awake()
+    {
+        
+    }
     private void checkForOutsideBoundary()
     {
        pos = transform.position;
@@ -28,7 +34,8 @@ public class PlayerArrow : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Debug.Log("Player arrow");
-            other.GetComponent<Enemy>().TakeDamage(120);
+            other.GetComponent<Enemy>().TakeDamage(damage);
+            stats.UpdateEnemyHitCount();
             Destroy(gameObject);
         }
     }

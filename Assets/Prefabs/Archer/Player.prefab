@@ -1640,10 +1640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03442324a8a64644c85a31b905a1a72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
   healthBar: {fileID: 0}
   isDead: 0
-  gameManagerScript: {fileID: 0}
 --- !u!65 &853234895
 BoxCollider:
   m_ObjectHideFlags: 0

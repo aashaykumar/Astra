@@ -6114,9 +6114,10 @@ MonoBehaviour:
   txtXPValue: {fileID: 8419781929212809562}
   txtcurrentObjective: {fileID: 1354719677}
   txtTimer: {fileID: 867419922}
-  currentState: 0
   txtResultStatus: {fileID: 8419781931079975422}
   txtResultMsg: {fileID: 8419781931144694913}
+  currentState: 0
+  stats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
 --- !u!4 &1041573442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4728629313418672, guid: f90332d96af8d7f40a4768c70cb14a04,
@@ -12143,6 +12144,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1523287333180442170, guid: 970578e9b80e27143aafab171f80a358,
+        type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d,
+        type: 2}
     - target: {fileID: 2617162411212295957, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: m_RootOrder
@@ -12200,14 +12207,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3393981237799425452, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d,
+        type: 2}
+    - target: {fileID: 3393981237799425452, guid: 970578e9b80e27143aafab171f80a358,
+        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1993801128}
-    - target: {fileID: 3393981237799425452, guid: 970578e9b80e27143aafab171f80a358,
-        type: 3}
-      propertyPath: gameManagerScript
-      value: 
-      objectReference: {fileID: 1039159900}
     - target: {fileID: 3393981237799425455, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: m_Name
@@ -12574,7 +12582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8419781930030769930
 MonoBehaviour:
   m_ObjectHideFlags: 0

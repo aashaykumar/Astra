@@ -1510,7 +1510,7 @@ MonoBehaviour:
   arrowObject: {fileID: 1665844716331944833, guid: 217ecd216478b0841805c2b35971dce2,
     type: 3}
   arrowPoint: {fileID: 7233071015323567017}
-  gameManager: {fileID: 0}
+  stats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
 --- !u!1 &7233071015901625833
 GameObject:
   m_ObjectHideFlags: 0

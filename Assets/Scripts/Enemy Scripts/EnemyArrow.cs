@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyArrow : MonoBehaviour
 {
     Vector3 pos;
+    [SerializeField] private PlayerStats targetstats;
+
     private void LateUpdate()
     {
         checkForOutsideBoundary();
@@ -25,7 +27,7 @@ public class EnemyArrow : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Enemy arrow");
-            other.GetComponent<Player>().TakeDamage(20);
+            targetstats.TakeDamage(20);
             Destroy(gameObject);
         }
         else if(other.tag == "SafeArea")

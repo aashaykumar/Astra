@@ -29,13 +29,14 @@ public class AnimationAndMovementController : MonoBehaviour
 
     CharacterController characterController;
     Animator animator;
+    [SerializeField] private PlayerStats stats;
 
     void Awake()
     {
         mainCamera = Camera.main;
         playerInput = GetComponent<PlayerInput>();
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+       animator = GetComponent<Animator>();
         touchPositionAction = playerInput.actions["TouchPosition"];
         touchPressAction = playerInput.actions["TouchPress"];
     }
@@ -118,6 +119,7 @@ public class AnimationAndMovementController : MonoBehaviour
         arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
+        stats.UpdateArrowCount();
     }
 
     private void OnDrawGizmos()

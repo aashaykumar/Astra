@@ -1,43 +1,56 @@
+using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public int HP = 100;
+    [SerializeField] private PlayerStats stats;
+
     public Slider healthBar;
-    Animator animator;
     public bool isDead = false;
 
+    Animator animator;
     GameObject gameManager;
     GameManagerScript gameManagerScript;
 
     private void Awake()
     {
+
         gameManager = GameObject.FindGameObjectWithTag("GameController");
+        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
+        //playerMaxXpPerLevel = gameManagerScript.GetCurrentLevel() * playerMaxXpPerLevel;
+
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void Start()
     {
-        healthBar.value = HP;
+        healthBar.value = stats.currentHealth;
     }
 
-    public void TakeDamage(int damageAmount)
+    void OnEnable()
     {
-        HP -= damageAmount;
+        stats.HealthChanged += CheckIfAlive;
+    }
+    void OnDisable()
+    {
+        stats.HealthChanged -= CheckIfAlive;
+    }
 
-        if (HP <= 0 && !isDead)
+    private void CheckIfAlive(int newHealthValue)
+    {
+        if (newHealthValue <= 0 && !isDead)
         {
             animator.SetTrigger("die");
             isDead = true;
             Destroy(gameObject, 2f);
-            gameManagerScript = gameManager.GetComponent<GameManagerScript>();
-            gameManagerScript.Gamelose(); 
+            gameManagerScript.Gamelose();
         }
         else
         {
-            animator.SetTrigger("damage");
+            healthBar.value = stats.currentHealth;
+            animator.SetTrigger("isHit");
         }
     }
 }

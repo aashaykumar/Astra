@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public GameObject arrowObject;
     public Transform arrowPoint;
 
+    [SerializeField] private PlayerStats stats;
+
     GameObject gameManager;
     GameManagerScript gameManagerScript;
 
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0 && !isDead)
         {
+            stats.UpdatePlayerStatsOnEnemyKill(1);
             animator.SetTrigger("die");
             isDead = true;
             gameManagerScript = gameManager.GetComponent<GameManagerScript>();

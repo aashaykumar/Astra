@@ -24,17 +24,19 @@ public class GameManagerScript : MonoBehaviour
 
     public TextMeshProUGUI txtGoldValue;
     public TextMeshProUGUI txtXPValue;
+    public TextMeshProUGUI txtPlayerLevel;
     public TextMeshProUGUI txtcurrentObjective;
     public TextMeshProUGUI txtTimer;
-    public GameState currentState = GameState.GetReady;
     public TextMeshProUGUI txtResultStatus;
     public TextMeshProUGUI txtResultMsg;
+    public GameState currentState = GameState.GetReady;
 
-    private int currentGoldValue = 0;
     private int currentLevel = 1;
     private int currentObjective = 0;
-    private int currentLevelObjective = 1;
+    private int currentLevelObjective = 3;
     private float timer = 120f;
+
+    [SerializeField] private PlayerStats stats;
 
     private void Awake()
     {
@@ -80,18 +82,16 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    public void updatePlayerStats()
-    {
-
-    }
-
     public void Gamelose()
     {
+        currentState = GameState.GameOver;
         txtResultStatus.text = "DEFEAT";
         txtResultMsg.text = "YOU LOST!";
+        txtGoldValue.text = stats.totalGoldCoin.ToString();
+        txtPlayerLevel.text = stats.playerLevel.ToString();
+        txtXPValue.text = stats.playerCurrentXP.ToString() + "/" + stats.playerMaxXpPerLevel.ToString();
         Stars.SetActive(false);
         NextLevel.SetActive(false);
-        currentState = GameState.GameOver;
         mainMenuScreen.SetActive(false);
         resultScreen.SetActive(true);
         Time.timeScale = 0f;
@@ -99,12 +99,15 @@ public class GameManagerScript : MonoBehaviour
 
     public void GameWon()
     {
-        txtResultStatus.text = "VICTORY";
-        txtResultMsg.text = "YOU WON!";
-        Stars.SetActive(true);
-        NextLevel.SetActive(true);
         currentState = GameState.GameOver;
         currentLevel = currentLevel + 1;
+        stats.UpdatePlayerStats(currentLevel);
+        txtResultStatus.text = "VICTORY";
+        txtResultMsg.text = "YOU WON!";
+        txtGoldValue.text = stats.totalGoldCoin.ToString();
+        txtPlayerLevel.text = stats.playerLevel.ToString();
+        Stars.SetActive(true);
+        NextLevel.SetActive(true);
         mainMenuScreen.SetActive(false);
         resultScreen.SetActive(true);
         Time.timeScale = 0f;
@@ -138,5 +141,10 @@ public class GameManagerScript : MonoBehaviour
     public void LoadMainMenuScreen() 
     {
         SceneManager.LoadScene("ScreenTransitions");
+    }
+
+    public int GetCurrentLevel() 
+    {
+        return currentLevel;
     }
 }
