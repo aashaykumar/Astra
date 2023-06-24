@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   maxHealth: 200
-  currentHealth: 140
-  playerLevel: 2
+  currentHealth: 100
+  playerLevel: 1
   playerMaxLevel: 10
   playerTempXP: 0
   playerMaxXpPerLevel: 150
   playerCurrentXP: 0
   maxArmor: 50
-  armor: 10
+  armor: 5
   playerAccuracy: 0
   playerKDA: 0
-  totalEnemyKillCount: 0
+  totalEnemyKillCount: 1
   totalArrowFired: 0
   totalArrowHitEnemy: 0
   totalPlayerDeathCount: 0
+  totalGoldCoin: 200

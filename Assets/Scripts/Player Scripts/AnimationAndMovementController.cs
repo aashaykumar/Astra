@@ -36,7 +36,7 @@ public class AnimationAndMovementController : MonoBehaviour
         mainCamera = Camera.main;
         playerInput = GetComponent<PlayerInput>();
         characterController = GetComponent<CharacterController>();
-       animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         touchPositionAction = playerInput.actions["TouchPosition"];
         touchPressAction = playerInput.actions["TouchPress"];
     }

@@ -42,7 +42,7 @@ public class PlayerStats : ScriptableObject
 
     public void checkPlayerPrefsKeysAndValue()
     {
-       PlayerPrefs.DeleteAll();
+       //PlayerPrefs.DeleteAll();
         ResetPlayerTempXP();
         if (!PlayerPrefs.HasKey("PlayerHealth"))
             PlayerPrefs.SetInt("PlayerHealth", currentHealth);

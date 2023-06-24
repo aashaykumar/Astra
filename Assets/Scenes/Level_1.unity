@@ -1345,6 +1345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palm_Tree_A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1307590718773060, guid: 92fb9a2c2be02e84ba1cf8da1f44abb1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4272134326793482, guid: 92fb9a2c2be02e84ba1cf8da1f44abb1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3268,6 +3272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palm_Tree_A (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1307590718773060, guid: 92fb9a2c2be02e84ba1cf8da1f44abb1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4272134326793482, guid: 92fb9a2c2be02e84ba1cf8da1f44abb1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3511,15 +3519,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079976729106750, guid: e53824cdc0ec8ad459787b3a044b55b8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4079976729106750, guid: e53824cdc0ec8ad459787b3a044b55b8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4079976729106750, guid: e53824cdc0ec8ad459787b3a044b55b8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4079976729106750, guid: e53824cdc0ec8ad459787b3a044b55b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3711,8 +3719,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3769,14 +3777,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.075131394, y: 0.86212033, z: -0.4828104, w: 0.13415681}
+  m_LocalPosition: {x: 0, y: 12.2, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.5, y: 162.31, z: 0}
 --- !u!4 &707072286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4209806736686714, guid: 3201c303f4d42d44d8983a2933d99b1e,
@@ -5406,7 +5414,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 963194229}
+  - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   m_Layer: 0
@@ -5467,26 +5475,21 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!224 &963194229
-RectTransform:
+--- !u!4 &963194228
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 0, z: -6}
+  m_LocalPosition: {x: 0, y: 13, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 13}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &966946462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5497,6 +5500,10 @@ PrefabInstance:
     - target: {fileID: 1235254611762446, guid: b07f8384b5f7a4647bc66057056b2976, type: 3}
       propertyPath: m_Name
       value: Palm_Tree_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235254611762446, guid: b07f8384b5f7a4647bc66057056b2976, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4002698735354410, guid: b07f8384b5f7a4647bc66057056b2976, type: 3}
       propertyPath: m_RootOrder
@@ -6112,6 +6119,7 @@ MonoBehaviour:
   NextLevel: {fileID: 8419781930030769929}
   txtGoldValue: {fileID: 8419781930683035424}
   txtXPValue: {fileID: 8419781929212809562}
+  txtPlayerLevel: {fileID: 8419781930037664546}
   txtcurrentObjective: {fileID: 1354719677}
   txtTimer: {fileID: 867419922}
   txtResultStatus: {fileID: 8419781931079975422}
@@ -7369,6 +7377,18 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4758125862921394, guid: 5be25102ba01c684793778924982b928, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758125862921394, guid: 5be25102ba01c684793778924982b928, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758125862921394, guid: 5be25102ba01c684793778924982b928, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758125862921394, guid: 5be25102ba01c684793778924982b928, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.32
       objectReference: {fileID: 0}
@@ -8595,6 +8615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palm_Tree_A
       objectReference: {fileID: 0}
+    - target: {fileID: 1307590718773060, guid: 92fb9a2c2be02e84ba1cf8da1f44abb1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4272134326793482, guid: 92fb9a2c2be02e84ba1cf8da1f44abb1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -8940,6 +8964,10 @@ PrefabInstance:
     - target: {fileID: 1108915491598832, guid: 1049cdd19c826f04496a357604dc0970, type: 3}
       propertyPath: m_Name
       value: Palm_Tree_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108915491598832, guid: 1049cdd19c826f04496a357604dc0970, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4389170944532060, guid: 1049cdd19c826f04496a357604dc0970, type: 3}
       propertyPath: m_RootOrder
@@ -9630,6 +9658,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - cost: 1
+    enemyPrefab: {fileID: 6518549337392908426, guid: 828943890bd925740ba31116a9daf536,
+      type: 3}
   - cost: 1
     enemyPrefab: {fileID: 7233071015898612781, guid: 30f2483050c8d874293d3e80ff30040a,
       type: 3}
@@ -11924,6 +11955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palm_Tree_B (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1235254611762446, guid: b07f8384b5f7a4647bc66057056b2976, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4002698735354410, guid: b07f8384b5f7a4647bc66057056b2976, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12144,12 +12179,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1523287333180442170, guid: 970578e9b80e27143aafab171f80a358,
-        type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d,
-        type: 2}
     - target: {fileID: 2617162411212295957, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: m_RootOrder
@@ -12205,12 +12234,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3393981237799425452, guid: 970578e9b80e27143aafab171f80a358,
-        type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d,
-        type: 2}
     - target: {fileID: 3393981237799425452, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: healthBar

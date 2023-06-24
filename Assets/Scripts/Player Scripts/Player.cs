@@ -16,11 +16,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
         //playerMaxXpPerLevel = gameManagerScript.GetCurrentLevel() * playerMaxXpPerLevel;
-
         animator = GetComponent<Animator>();
     }
 

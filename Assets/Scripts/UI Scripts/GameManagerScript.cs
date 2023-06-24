@@ -85,6 +85,7 @@ public class GameManagerScript : MonoBehaviour
     public void Gamelose()
     {
         currentState = GameState.GameOver;
+        AudioSystem.Instance.Play("GameLose");
         txtResultStatus.text = "DEFEAT";
         txtResultMsg.text = "YOU LOST!";
         txtGoldValue.text = stats.totalGoldCoin.ToString();
@@ -100,6 +101,7 @@ public class GameManagerScript : MonoBehaviour
     public void GameWon()
     {
         currentState = GameState.GameOver;
+        AudioSystem.Instance.Play("GameWin");
         currentLevel = currentLevel + 1;
         stats.UpdatePlayerStats(currentLevel);
         txtResultStatus.text = "VICTORY";
