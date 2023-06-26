@@ -1,12 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static Unity.VisualScripting.Member;
 
 public class Enemy : MonoBehaviour
 {
-    private int HP = 100;
-
+    public int HP = 100;
     Quaternion rotation;
     public Slider healthBar;
     public GameObject healthBarCanvas;
@@ -15,7 +14,8 @@ public class Enemy : MonoBehaviour
     public GameObject arrowObject;
     public Transform arrowPoint;
 
-    [SerializeField] private PlayerStats stats;
+    [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private PlayerStats playerStats;
 
     GameObject gameManager;
     GameManagerScript gameManagerScript;
@@ -25,7 +25,11 @@ public class Enemy : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         rotation = healthBarCanvas.transform.rotation;
     }
-
+    private void Start()
+    {
+        HP = enemyStats.currentHealth;
+        healthBar.value = HP;
+    }
     private void Update()
     {
         healthBar.value = HP;
@@ -48,17 +52,26 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0 && !isDead)
         {
-            stats.UpdatePlayerStatsOnEnemyKill(1);
+            playerStats.UpdatePlayerStatsOnEnemyKill(1);
             animator.SetTrigger("die");
             isDead = true;
+            StartCoroutine(waitForEnemyDie());
             gameManagerScript = gameManager.GetComponent<GameManagerScript>();
             gameManagerScript.checkforLevelObjective();
-            Destroy(gameObject, 2f);
+            gameObject.SetActive(false);
+            HP = 100;
+            ObjectPoolingManager.ReturnObjectToPool(gameObject);
+            //Destroy(gameObject, 2f);
 
         }
         else
         {   
             animator.SetTrigger("damage");
+        }
+
+        IEnumerator waitForEnemyDie()
+        {
+            yield return new WaitForSeconds(2);
         }
 
     }

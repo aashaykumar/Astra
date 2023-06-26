@@ -29,7 +29,7 @@ public class ChaseState : StateMachineBehaviour
         }
         else if (distance > patrolRange && distance <= AttackRange)
         {
-            agent.Stop();
+            agent.isStopped = true;
             animator.SetBool("isAttacking", true);
             animator.SetBool("isChasing", false);
             animator.SetBool("isPatrolling", false);

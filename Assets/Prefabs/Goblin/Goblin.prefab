@@ -1503,6 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0868f73cebb5843b2dffe3d9985c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 0
   healthBar: {fileID: 7233071017010755942}
   healthBarCanvas: {fileID: 7233071016394871700}
   animator: {fileID: 7233071015898612769}
@@ -1510,7 +1511,8 @@ MonoBehaviour:
   arrowObject: {fileID: 1665844716331944833, guid: 217ecd216478b0841805c2b35971dce2,
     type: 3}
   arrowPoint: {fileID: 7233071015323567017}
-  stats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
+  enemyStats: {fileID: 11400000, guid: 32fed0bf8f1cb154cbd66cfc5751268e, type: 2}
+  playerStats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
 --- !u!1 &7233071015901625833
 GameObject:
   m_ObjectHideFlags: 0

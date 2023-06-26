@@ -33,15 +33,24 @@ public class GameManagerScript : MonoBehaviour
 
     private int currentLevel = 1;
     private int currentObjective = 0;
-    private int currentLevelObjective = 3;
+    private int currentLevelObjective = 2;
     private float timer = 120f;
 
-    [SerializeField] private PlayerStats stats;
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private EnemyStats bossStats;
 
     private void Awake()
     {
+        UpdateGameData();
         txtcurrentObjective.text = currentObjective.ToString() + "/" + currentLevelObjective.ToString();
         txtTimer.text = "2:00";
+    }
+
+    private void UpdateGameData()
+    {
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        currentLevelObjective = currentLevel * 2;
     }
 
     private void Start()
@@ -88,9 +97,9 @@ public class GameManagerScript : MonoBehaviour
         AudioSystem.Instance.Play("GameLose");
         txtResultStatus.text = "DEFEAT";
         txtResultMsg.text = "YOU LOST!";
-        txtGoldValue.text = stats.totalGoldCoin.ToString();
-        txtPlayerLevel.text = stats.playerLevel.ToString();
-        txtXPValue.text = stats.playerCurrentXP.ToString() + "/" + stats.playerMaxXpPerLevel.ToString();
+        txtGoldValue.text = playerStats.totalGoldCoin.ToString();
+        txtPlayerLevel.text = playerStats.playerLevel.ToString();
+        txtXPValue.text = playerStats.playerCurrentXP.ToString() + "/" + playerStats.playerMaxXpPerLevel.ToString();
         Stars.SetActive(false);
         NextLevel.SetActive(false);
         mainMenuScreen.SetActive(false);
@@ -101,18 +110,21 @@ public class GameManagerScript : MonoBehaviour
     public void GameWon()
     {
         currentState = GameState.GameOver;
-        AudioSystem.Instance.Play("GameWin");
+        Time.timeScale = 0f; 
         currentLevel = currentLevel + 1;
-        stats.UpdatePlayerStats(currentLevel);
+        AudioSystem.Instance?.Play("GameWin");
         txtResultStatus.text = "VICTORY";
         txtResultMsg.text = "YOU WON!";
-        txtGoldValue.text = stats.totalGoldCoin.ToString();
-        txtPlayerLevel.text = stats.playerLevel.ToString();
+        txtGoldValue.text = playerStats.totalGoldCoin.ToString();
+        txtPlayerLevel.text = playerStats.playerLevel.ToString();
         Stars.SetActive(true);
         NextLevel.SetActive(true);
         mainMenuScreen.SetActive(false);
         resultScreen.SetActive(true);
-        Time.timeScale = 0f;
+        playerStats.UpdatePlayerStats(currentLevel);
+        enemyStats.UpdateEnemyStats();
+        if ((currentLevel % 5) == 0)
+            bossStats.UpdateEnemyStats();
     }
 
     public void GamePause()
@@ -136,8 +148,8 @@ public class GameManagerScript : MonoBehaviour
 
     public void PlayNextLevel()
     {
-        SceneManager.LoadScene("Level_1");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void LoadMainMenuScreen() 

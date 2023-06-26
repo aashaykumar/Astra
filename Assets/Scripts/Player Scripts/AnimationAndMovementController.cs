@@ -22,7 +22,7 @@ public class AnimationAndMovementController : MonoBehaviour
     public GameObject arrowObject;
     public Transform arrowPoint;
 
-    bool isMovementPressed;
+    bool isMovementPressed = false;
     bool isAiming;
     float rotationFactorPerFrame = 1f;
     float speed = 1f;
@@ -46,40 +46,54 @@ public class AnimationAndMovementController : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(touchPositionAction.ReadValue<Vector2>());
         if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit) && hit.collider)
         {
-            if (coroutine != null) StopCoroutine(coroutine);
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                animator.SetBool("isWalking", false);
+            }
             if (hit.collider.gameObject.tag == "Enemy")
             {
-                handleRotation(hit.point);
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isShooting", true);
-                
+                if (!hit.collider.GetComponent<Enemy>().isDead)
+                {
+                    isMovementPressed = false;
+                    handleRotation(hit.point);
+                    animator.SetBool("isWalking", false);
+                    animator.SetBool("isShooting", true);
+                }
             }
             else if (hit.collider.gameObject.tag == "Ground")
             {
-                StartCoroutine(PlayerMoveTowards(hit.point));
                 targetPosition = hit.point;
+                isMovementPressed = true;
             }
         }
     }
-
-    private IEnumerator PlayerMoveTowards(Vector3 target){
+    private void Update()
+    {
+        if (isMovementPressed) 
+        {
+            PlayerMoveTowards(targetPosition);
+        }
+    }
+    
+    public void PlayerMoveTowards(Vector3 target){
         float playerDistanceToFloor = transform.position.y - target.y;
         target.y += playerDistanceToFloor;
-        while (Vector3.Distance(transform.position, target) > 1f){
-            Vector3 destination = Vector3.MoveTowards(transform.position, target, playerSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, target) > 0.1f && isMovementPressed)
+        {
             Vector3 direction = target - transform.position;
             Vector3 movement = direction.normalized * playerSpeed * Time.deltaTime;
             characterController.Move(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction.normalized), rotationSpeed * Time.deltaTime);
             animator.SetBool("isWalking", true);
-            yield return null;
         }
-        if(Vector3.Distance(transform.position, target) <= 1f)
+        else
         {
             animator.SetBool("isWalking", false);
-            yield return null;
+            isMovementPressed = false;
         }
     }
+
     public void handleRotation(Vector3 target)
     {
         float playerDistanceToFloor = transform.position.y - target.y;
@@ -88,21 +102,7 @@ public class AnimationAndMovementController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction.normalized), 1);
 
     }
-    void handleAnimation()
-    {
-        bool isWalking = animator.GetBool("isWalking");
-        bool isRunning = animator.GetBool("isRunning");
-
-        if (isMovementPressed && !isWalking) {
-            animator.SetBool("isWalking", true);
-        }
-        else if (!isMovementPressed && isWalking)
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isRunning", false);
-        }
-    }
-
+    
     private void OnEnable()
     {
         touchPressAction.performed += onMovementInput;
@@ -115,17 +115,18 @@ public class AnimationAndMovementController : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
-        arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
+         GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.PlayerArrow);
+        //GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
+        obj.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
         stats.UpdateArrowCount();
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(targetPosition,1);
-    }
+    }*/
 
 }

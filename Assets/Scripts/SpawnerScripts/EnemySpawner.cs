@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
 
             if(waveValue - randEnemyCost >= 0) 
             {
-                generatedEnemies.Add(enemies[0].enemyPrefab);
+               generatedEnemies.Add(enemies[0].enemyPrefab);
                 waveValue -= randEnemyCost;
             }
             else if(waveValue <= 0)
@@ -60,11 +60,13 @@ public class EnemySpawner : MonoBehaviour
         {
             //spawn an enemy
             if (enemiesToSpawn.Count > 0)
-                {
-                    Instantiate(enemiesToSpawn[0], getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
-                    enemiesToSpawn.RemoveAt(0);
-                    spawnTimer = spawnInterval;
-                }
+            {
+                Debug.Log("enemiesToSpawn" + enemiesToSpawn.Count);
+                ObjectPoolingManager.spawnObject(enemiesToSpawn[0], getSpawnPosition(), transform.rotation, ObjectPoolingManager.poolType.Goblin);
+                //Instantiate(enemiesToSpawn[0], getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
+                enemiesToSpawn.RemoveAt(0);
+                spawnTimer = spawnInterval;
+            }
             else { waveTimer = 0; }
             }
         else

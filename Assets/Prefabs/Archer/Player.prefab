@@ -1607,7 +1607,17 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2ce321de-d5a6-4588-80c7-1cb815c44c7d
+    m_ActionName: Touch/TouchPosition[/Device Simulator Touchscreen/position,/Simulated
+      Touchscreen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2b57e322-0e50-438f-9c97-b5f08a16a8be
+    m_ActionName: Touch/TouchPress[/Device Simulator Touchscreen/press,/Simulated
+      Touchscreen/press]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Touch
