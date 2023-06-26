@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (spawnTimer <= 0) 
         {
-            //spawn an enemy
+            //spawn an enemy from object pooling
             if (enemiesToSpawn.Count > 0)
             {
                 Debug.Log("enemiesToSpawn" + enemiesToSpawn.Count);
