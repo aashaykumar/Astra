@@ -42,7 +42,7 @@ public class PlayerStats : ScriptableObject
 
     public void checkPlayerPrefsKeysAndValue()
     {
-       //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         ResetPlayerTempXP();
         if (!PlayerPrefs.HasKey("PlayerHealth"))
             PlayerPrefs.SetInt("PlayerHealth", currentHealth);
@@ -174,7 +174,7 @@ public class PlayerStats : ScriptableObject
             {
                 playerTempXP = playerTempXP - playerMaxXpPerLevel;
                 playerLevel = playerLevel + 1;
-                currentHealth = (currentHealth +  playerLevel * 20) >= maxHealth ? maxHealth : (currentHealth + playerLevel * 20);
+                currentHealth = (currentHealth + playerLevel * 20) >= maxHealth ? maxHealth : (currentHealth + playerLevel * 20);
                 armor = (playerLevel * 5) > maxArmor ? maxArmor : (playerLevel * 5);
                 playerMaxXpPerLevel = (playerMaxXpPerLevel * gameLevel);
                 PlayerPrefs.SetInt("PlayerLevel", playerLevel);
@@ -199,4 +199,23 @@ public class PlayerStats : ScriptableObject
         Health -= damageAmount;
     }
 
+    public void ResetPlayerAllStats()
+    {
+         maxHealth = 200;
+         currentHealth = 100;
+         playerLevel = 1;
+         playerMaxLevel = 10;
+         playerTempXP = 0;
+         playerMaxXpPerLevel = 150;
+         playerCurrentXP = 0;
+         maxArmor = 50;
+         armor = 5;
+         playerAccuracy = 0;
+         playerKDA = 0;
+         totalEnemyKillCount = 0;
+         totalArrowFired = 0;
+         totalArrowHitEnemy = 0;
+         totalPlayerDeathCount = 0;
+         totalGoldCoin = 0;
+    }
 }

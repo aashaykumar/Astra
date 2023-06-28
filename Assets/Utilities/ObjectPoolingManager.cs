@@ -11,12 +11,14 @@ public class ObjectPoolingManager : MonoBehaviour
     private GameObject objectPoolHolder;
 
     private static GameObject enemyPoolHolder;
-    private static GameObject arrowPoolHolder;
+    private static GameObject playerArrowPoolHolder;
+    private static GameObject enemyArrowPoolHolder;
 
     public enum poolType
     {
         PlayerArrow,
         Goblin,
+        EnemyArrow,
         none
     }
     public static poolType poolingType;
@@ -30,8 +32,11 @@ public class ObjectPoolingManager : MonoBehaviour
     {
         objectPoolHolder = new GameObject("Pooled objects");
 
-        arrowPoolHolder = new GameObject("Arrow Pool");
-        arrowPoolHolder.transform.SetParent(objectPoolHolder.transform);
+        playerArrowPoolHolder = new GameObject("Player Arrow Pool");
+        playerArrowPoolHolder.transform.SetParent(objectPoolHolder.transform);
+
+        enemyArrowPoolHolder = new GameObject("Enemy Arrow Pool");
+        enemyArrowPoolHolder.transform.SetParent(objectPoolHolder.transform);
 
         enemyPoolHolder = new GameObject("Enemy Pool");
         enemyPoolHolder.transform.SetParent(objectPoolHolder.transform);
@@ -88,10 +93,13 @@ public class ObjectPoolingManager : MonoBehaviour
         switch(poolType)
         {
             case poolType.PlayerArrow:
-                return arrowPoolHolder;
+                return playerArrowPoolHolder;
 
             case poolType.Goblin:
                 return enemyPoolHolder;
+
+            case poolType.EnemyArrow:
+                return enemyArrowPoolHolder;
 
             case poolType.none:
                 return null;

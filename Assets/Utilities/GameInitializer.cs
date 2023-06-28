@@ -20,7 +20,7 @@ public class GameInitializer : MonoBehaviour
 
     private void InitGame()
     {
-        stats.checkPlayerPrefsKeysAndValue();
+        stats.ResetPlayerAllStats();
     }
 
     public void UpdatePlayerStatsText()
