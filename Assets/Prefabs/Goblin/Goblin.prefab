@@ -512,7 +512,7 @@ Transform:
   m_LocalScale: {x: 223.16788, y: 223.16788, z: 223.16788}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7233071015898612770}
+  m_Father: {fileID: 2016313429180277534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7233071015343835981
@@ -1399,11 +1399,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7233071015898612770}
+  - component: {fileID: 2016313429180277534}
   - component: {fileID: 7233071015898612769}
   - component: {fileID: 7233071015898612768}
   - component: {fileID: 7233071015898612783}
   - component: {fileID: 7233071015898612782}
+  - component: {fileID: -3402524346507390931}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
@@ -1411,8 +1412,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7233071015898612770
-RectTransform:
+--- !u!4 &2016313429180277534
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1430,11 +1431,6 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.08}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &7233071015898612769
 Animator:
   serializedVersion: 5
@@ -1464,7 +1460,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7233071015898612781}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4371874, z: 1.0220037}
@@ -1478,12 +1474,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 7233071015898612781}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 1
-  m_Acceleration: 1.06
+  m_Acceleration: 1
   avoidancePriority: 50
-  m_AngularSpeed: 60
-  m_StoppingDistance: 1
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1511,8 +1507,26 @@ MonoBehaviour:
   arrowObject: {fileID: 1665844716331944833, guid: 217ecd216478b0841805c2b35971dce2,
     type: 3}
   arrowPoint: {fileID: 7233071015323567017}
+  attackRange: 0
+  enemyType: 0
   enemyStats: {fileID: 11400000, guid: 32fed0bf8f1cb154cbd66cfc5751268e, type: 2}
   playerStats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
+--- !u!54 &-3402524346507390931
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233071015898612781}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 68
+  m_CollisionDetection: 0
 --- !u!1 &7233071015901625833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,7 +1891,7 @@ Transform:
   - {fileID: 7233071015621624622}
   - {fileID: 7233071016371091195}
   - {fileID: 7233071015653770990}
-  m_Father: {fileID: 7233071015898612770}
+  m_Father: {fileID: 2016313429180277534}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7233071016145105009
@@ -2380,13 +2394,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7233071016394871700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7233071017010755941}
-  m_Father: {fileID: 7233071015898612770}
+  m_Father: {fileID: 2016313429180277534}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2613,7 +2627,7 @@ Transform:
   m_LocalScale: {x: 223.16788, y: 223.16788, z: 223.16788}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7233071015898612770}
+  m_Father: {fileID: 2016313429180277534}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7233071016457810873
@@ -3527,7 +3541,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

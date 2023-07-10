@@ -12,6 +12,10 @@ public class EnemyStats : ScriptableObject
     public int ArmorMultiplerPerLevel = 2;
     public int HealthMultiplerPerLevel = 10;
     public int armor = 0;
+    public float patrolSpeed = 0.5f;
+    public float chaseSpeed = 1f;
+    public int attackDamage = 10;
+    public float attackRange = 6;
 
     public int Health
     {
@@ -28,13 +32,14 @@ public class EnemyStats : ScriptableObject
         }
     }
 
-    public void UpdateEnemyStats()
+    public void UpdateEnemyStats(int currentLevel)
     {
-        if (EnemyLevel < EnemyMaxLevel)
+        EnemyLevel = currentLevel;
+        if (EnemyLevel <= EnemyMaxLevel)
         {
-            EnemyLevel = EnemyLevel + 1;
-            currentHealth = (currentHealth + EnemyLevel * HealthMultiplerPerLevel) >= maxHealth ? maxHealth : (currentHealth + EnemyLevel * HealthMultiplerPerLevel);
-            armor = (EnemyLevel * ArmorMultiplerPerLevel) > maxArmor ? maxArmor : (EnemyLevel * ArmorMultiplerPerLevel);
+            currentHealth = (currentHealth + (EnemyLevel - 1) * HealthMultiplerPerLevel) >= maxHealth ? maxHealth : (currentHealth + (EnemyLevel - 1) * HealthMultiplerPerLevel);
+            armor = ((EnemyLevel - 1) * ArmorMultiplerPerLevel) > maxArmor ? maxArmor : ((EnemyLevel - 1) * ArmorMultiplerPerLevel);
+            attackDamage = attackDamage + (EnemyLevel - 1) * 5;
         }
     }
 
@@ -44,4 +49,19 @@ public class EnemyStats : ScriptableObject
         Health -= damageAmount;
     }
 
+    public void ResetEnemyAllStats()
+    {
+        maxHealth = 200;
+        currentHealth = 100;
+        EnemyLevel = 1;
+        EnemyMaxLevel = 10;
+        maxArmor = 20;
+        ArmorMultiplerPerLevel = 2;
+        HealthMultiplerPerLevel = 10;
+        armor = 0;
+        patrolSpeed = 0.5f;
+        chaseSpeed = 1f;
+        attackDamage = 10;
+        attackRange = 6;
+    }
 }

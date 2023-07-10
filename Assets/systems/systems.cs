@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class systems : SingletonPersistent<systems>
 {
+    systems()
+    {
 
+    }
 }

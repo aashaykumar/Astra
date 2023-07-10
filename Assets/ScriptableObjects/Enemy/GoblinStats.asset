@@ -15,8 +15,12 @@ MonoBehaviour:
   maxHealth: 200
   currentHealth: 100
   EnemyLevel: 1
-  EnemyMaxLevel: 10
+  EnemyMaxLevel: 4
   maxArmor: 20
   ArmorMultiplerPerLevel: 2
   HealthMultiplerPerLevel: 10
   armor: 0
+  patrolSpeed: 0.5
+  chaseSpeed: 1
+  attackDamage: 10
+  attackRange: 6

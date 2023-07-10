@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     GameObject gameManager;
     GameManagerScript gameManagerScript;
 
-    private void Awake()
+    public void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
@@ -38,17 +38,19 @@ public class Player : MonoBehaviour
 
     private void CheckIfAlive(int newHealthValue)
     {
+       // Debug.Log("IN CheckIFAlive" + stats.currentHealth);
         if (newHealthValue <= 0 && !isDead)
         {
-            animator.SetTrigger("die");
+            animator.SetTrigger("isDead");
             isDead = true;
-            Destroy(gameObject, 2f);
             gameManagerScript.Gamelose();
+            Destroy(gameObject, 2f);
         }
         else
         {
+            //Debug.Log("HealthAfterDamage"+ stats.currentHealth);
             healthBar.value = stats.currentHealth;
-            animator.SetTrigger("isHit");
+            //animator.SetTrigger("isHit");
         }
     }
 }

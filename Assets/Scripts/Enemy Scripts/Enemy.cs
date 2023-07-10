@@ -1,6 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
@@ -13,8 +14,9 @@ public class Enemy : MonoBehaviour
     public bool isDead = false;
     public GameObject arrowObject;
     public Transform arrowPoint;
+    public EnemyType enemyType;
 
-    [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] public EnemyStats enemyStats;
     [SerializeField] private PlayerStats playerStats;
 
     GameObject gameManager;
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController");
+        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
         rotation = healthBarCanvas.transform.rotation;
     }
     private void Start()
@@ -33,6 +36,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         healthBar.value = HP;
+        
     }
 
     private void LateUpdate()
@@ -42,8 +46,9 @@ public class Enemy : MonoBehaviour
 
     public void FireArrow()
     {
-        GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
-        arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
+        GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.EnemyArrow);
+        //GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
+        obj.GetComponent<Rigidbody>().AddForce(transform.forward * 30f, ForceMode.VelocityChange);
     }
 
     public void TakeDamage(int damageAmount)
@@ -53,26 +58,40 @@ public class Enemy : MonoBehaviour
         if (HP <= 0 && !isDead)
         {
             playerStats.UpdatePlayerStatsOnEnemyKill(1);
-            animator.SetTrigger("die");
             isDead = true;
+            animator.SetTrigger("die");
+            
+            //animator.applyRootMotion = false;
             StartCoroutine(waitForEnemyDie());
-            gameManagerScript = gameManager.GetComponent<GameManagerScript>();
             gameManagerScript.checkforLevelObjective();
-            gameObject.SetActive(false);
-            HP = 100;
-            ObjectPoolingManager.ReturnObjectToPool(gameObject);
-            //Destroy(gameObject, 2f);
-
         }
         else
-        {   
+        {
             animator.SetTrigger("damage");
         }
 
-        IEnumerator waitForEnemyDie()
+         IEnumerator waitForEnemyDie()
         {
             yield return new WaitForSeconds(2);
+            if (enemyType == EnemyType.Range)
+                UpdateToObjectPool();
+            else
+                Destroy(gameObject);
         }
 
+    }
+
+    private void UpdateToObjectPool()
+    {
+        this.gameObject.SetActive(false);
+        HP = 100;
+        isDead = false;
+        ObjectPoolingManager.ReturnObjectToPool(gameObject);
+    }
+
+    public enum EnemyType
+    {
+        Range,
+        Meelee
     }
 }

@@ -1411,6 +1411,7 @@ GameObject:
   - component: {fileID: 8903663915205806232}
   - component: {fileID: -1519446264656272098}
   - component: {fileID: -1560560522730379647}
+  - component: {fileID: 624328044039822579}
   m_Layer: 0
   m_Name: GoblinGreen
   m_TagString: Enemy
@@ -1446,7 +1447,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8980390744223769135}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1083249be60bb8446b2e9a4371be0196, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 87719ee5c56fa2a4db88e967668c2d58, type: 3}
   m_Controller: {fileID: 9100000, guid: 01ac08b50ecd5aa4e8239fc36695ff01, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1480,12 +1481,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 8980390744223769135}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 1
-  m_Acceleration: 1.06
+  m_Acceleration: 1
   avoidancePriority: 50
-  m_AngularSpeed: 60
-  m_StoppingDistance: 1
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1515,8 +1516,25 @@ MonoBehaviour:
     type: 3}
   arrowPoint: {fileID: 8980390744224071221}
   attackRange: 0
+  enemyType: 0
   enemyStats: {fileID: 11400000, guid: 32fed0bf8f1cb154cbd66cfc5751268e, type: 2}
   playerStats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
+--- !u!54 &624328044039822579
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980390744223769135}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 68
+  m_CollisionDetection: 0
 --- !u!1 &8980390744223769137
 GameObject:
   m_ObjectHideFlags: 0

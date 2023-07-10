@@ -34,7 +34,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -140,7 +140,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597577256}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.051}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150,7 +150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.652}
+  m_AnchoredPosition: {x: 0, y: 1.7}
   m_SizeDelta: {x: 60, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1597577259
@@ -327,7 +327,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 25}
+  m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973778554
 MonoBehaviour:
@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 1332212565}
   - component: {fileID: 1332212568}
   - component: {fileID: 6061306069311547036}
+  - component: {fileID: 1550655541347399587}
   m_Layer: 0
   m_Name: devil@idle
   m_TagString: Enemy
@@ -587,7 +588,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b6c2987a097deee4e91017b0a644f04a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -603,7 +604,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6518549337392908426}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6801524, y: 1.468348, z: 0.89719176}
@@ -617,12 +618,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 6518549337392908426}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Radius: 1
+  m_Speed: 1
+  m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -649,8 +650,26 @@ MonoBehaviour:
   isDead: 0
   arrowObject: {fileID: 6518549337392908604}
   arrowPoint: {fileID: 6518549337393206460}
+  attackRange: 0
+  enemyType: 1
   enemyStats: {fileID: 11400000, guid: bf9e43e8aa781f943901d2fa4266ca55, type: 2}
   playerStats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
+--- !u!54 &1550655541347399587
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518549337392908426}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 64
+  m_CollisionDetection: 0
 --- !u!1 &6518549337392908428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2491,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6518549337393206492}
+  - component: {fileID: 3004799208986298213}
+  - component: {fileID: 7495638778685156997}
   m_Layer: 0
   m_Name: stick
   m_TagString: Untagged
@@ -2494,6 +2515,32 @@ Transform:
   m_Father: {fileID: 6518549337393206490}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3004799208986298213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518549337392908604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18659332, y: 0.21905933, z: 0.051250346}
+  m_Center: {x: -0.014444488, y: 0.6393361, z: 0.005335122}
+--- !u!114 &7495638778685156997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518549337392908604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115add89437338743a43dceda591ce89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetstats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
 --- !u!1 &6518549337392908606
 GameObject:
   m_ObjectHideFlags: 0

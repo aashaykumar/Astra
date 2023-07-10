@@ -24,8 +24,9 @@ public class PlayerArrow : MonoBehaviour
 
         if (pos.z > 12f || pos.x > 12f || pos.x < -12f || pos.z < -12f)
         {
-
+            transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
             ObjectPoolingManager.ReturnObjectToPool(gameObject);
+            
             //Destroy(gameObject);
         }
     }
@@ -33,12 +34,12 @@ public class PlayerArrow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Destroy(transform.GetComponent<Rigidbody>());
-        transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
         if (other.tag == "Enemy")
         {
-            Debug.Log("Player arrow");
+            //Debug.Log("Player arrow");
             other.GetComponent<Enemy>().TakeDamage(damage);
             stats.UpdateEnemyHitCount();
+            transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
             ObjectPoolingManager.ReturnObjectToPool(gameObject);
             //Destroy(gameObject);
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09493dd356278054c964b9809596d64e, type: 3}
   m_Name: BossStats
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 500
   currentHealth: 100
   EnemyLevel: 1
   EnemyMaxLevel: 10
@@ -20,3 +20,7 @@ MonoBehaviour:
   ArmorMultiplerPerLevel: 2
   HealthMultiplerPerLevel: 10
   armor: 0
+  patrolSpeed: 0.8
+  chaseSpeed: 1
+  attackDamage: 20
+  attackRange: 1.3

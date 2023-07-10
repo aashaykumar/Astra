@@ -2,8 +2,8 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class AudioSystem : Singleton<AudioSystem>
-{
+public class AudioSystem : MonoBehaviour
+{ 
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BackgroundPref = "BackgroundPref";
     private static readonly string SoundEffectPref = "SoundEffectPref";
@@ -51,7 +51,7 @@ public class AudioSystem : Singleton<AudioSystem>
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source?.Play();
+        s.source.Play();
     }
 
 
@@ -107,6 +107,5 @@ public class Sound
 
     public bool loop;
 
-    [HideInInspector]
     public AudioSource source;
 }

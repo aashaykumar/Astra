@@ -7,10 +7,13 @@ public class AnimationAndMovementController : MonoBehaviour
 {
     PlayerInput playerInput;
 
+
     [SerializeField]
     private float playerSpeed= 2f;
     [SerializeField]
     private float rotationSpeed = 3f;
+    [SerializeField]
+    private float arrowForce = 20f;
 
     Vector3 targetPosition;
     
@@ -26,10 +29,12 @@ public class AnimationAndMovementController : MonoBehaviour
     bool isAiming;
     float rotationFactorPerFrame = 1f;
     float speed = 1f;
-
+    
     CharacterController characterController;
     Animator animator;
     [SerializeField] private PlayerStats stats;
+    [SerializeField] private GameObject gameController;
+    private GameManagerScript gameManagerScript;
 
     void Awake()
     {
@@ -37,34 +42,38 @@ public class AnimationAndMovementController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        gameManagerScript = gameController.GetComponentInChildren<GameManagerScript>();
         touchPositionAction = playerInput.actions["TouchPosition"];
         touchPressAction = playerInput.actions["TouchPress"];
     }
 
     void onMovementInput(InputAction.CallbackContext context)
     {
-        Ray ray = mainCamera.ScreenPointToRay(touchPositionAction.ReadValue<Vector2>());
-        if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit) && hit.collider)
+        if (gameManagerScript.currentState == GameState.Playing)
         {
-            if (coroutine != null)
+            Ray ray = mainCamera.ScreenPointToRay(touchPositionAction.ReadValue<Vector2>());
+            if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit) && hit.collider)
             {
-                StopCoroutine(coroutine);
-                animator.SetBool("isWalking", false);
-            }
-            if (hit.collider.gameObject.tag == "Enemy")
-            {
-                if (!hit.collider.GetComponent<Enemy>().isDead)
+                if (coroutine != null)
                 {
-                    isMovementPressed = false;
-                    handleRotation(hit.point);
+                    StopCoroutine(coroutine);
                     animator.SetBool("isWalking", false);
-                    animator.SetBool("isShooting", true);
                 }
-            }
-            else if (hit.collider.gameObject.tag == "Ground")
-            {
-                targetPosition = hit.point;
-                isMovementPressed = true;
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    if (!hit.collider.GetComponent<Enemy>().isDead)
+                    {
+                        isMovementPressed = false;
+                        handleRotation(hit.point);
+                        //animator.SetBool("isWalking", false);
+                        animator.SetBool("isShooting", true);
+                    }
+                }
+                else if (hit.collider.gameObject.tag == "Ground")
+                {
+                    targetPosition = hit.point;
+                    isMovementPressed = true;
+                }
             }
         }
     }
@@ -96,11 +105,10 @@ public class AnimationAndMovementController : MonoBehaviour
 
     public void handleRotation(Vector3 target)
     {
-        float playerDistanceToFloor = transform.position.y - target.y;
+       float playerDistanceToFloor = transform.position.y - target.y;
         target.y += playerDistanceToFloor;
         Vector3 direction = target - transform.position;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction.normalized), 1);
-
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction.normalized), 1f);
     }
     
     private void OnEnable()
@@ -117,7 +125,7 @@ public class AnimationAndMovementController : MonoBehaviour
     {
          GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.PlayerArrow);
         //GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
-        obj.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
+        obj.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce, ForceMode.VelocityChange);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
         stats.UpdateArrowCount();
