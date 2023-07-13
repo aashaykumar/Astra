@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33635107940720226}
   - component: {fileID: 23091286635557634}
   - component: {fileID: 489428806}
+  - component: {fileID: 489428805}
   m_Layer: 0
   m_Name: RockPlainGrey2
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1324491234842104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 33d70f8c8bfd4224d87e184cbf7fdf52, type: 3}
+--- !u!65 &489428805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324491234842104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.77072835, y: 0.9497532, z: 0.65954614}
+  m_Center: {x: -0.000000029802322, y: 0.46579567, z: -0.000000044703484}

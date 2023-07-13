@@ -109,7 +109,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 1
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Cave_Entry_B
       objectReference: {fileID: 0}
+    - target: {fileID: 1471052384335704, guid: 1c500ba592ff6da499b984c6f47d6db2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4695488222352260, guid: 1c500ba592ff6da499b984c6f47d6db2, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -410,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4695488222352260, guid: 1c500ba592ff6da499b984c6f47d6db2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.33
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 4695488222352260, guid: 1c500ba592ff6da499b984c6f47d6db2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -466,6 +470,10 @@ PrefabInstance:
     - target: {fileID: 1668507919608028, guid: a496026254e8e7b4184e88844c2e7efe, type: 3}
       propertyPath: m_Name
       value: Bones_GiantRibCage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668507919608028, guid: a496026254e8e7b4184e88844c2e7efe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4835879287073620, guid: a496026254e8e7b4184e88844c2e7efe, type: 3}
       propertyPath: m_RootOrder
@@ -546,6 +554,10 @@ PrefabInstance:
     - target: {fileID: 1645614848632794, guid: 03094edba87a7724a9395d699b2205a1, type: 3}
       propertyPath: m_Name
       value: Rock_CanyonLarge (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645614848632794, guid: 03094edba87a7724a9395d699b2205a1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4271191977084570, guid: 03094edba87a7724a9395d699b2205a1, type: 3}
       propertyPath: m_RootOrder
@@ -736,6 +748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Small_F
       objectReference: {fileID: 0}
+    - target: {fileID: 1337294745194694, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -843,6 +859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1223960932302318, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4535575937781324, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -917,6 +937,10 @@ PrefabInstance:
     - target: {fileID: 1625079031878956, guid: 94f9e5b4d978f4f4e86dbe68037085d8, type: 3}
       propertyPath: m_Name
       value: RockPlainBrown1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625079031878956, guid: 94f9e5b4d978f4f4e86dbe68037085d8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4210924807517078, guid: 94f9e5b4d978f4f4e86dbe68037085d8, type: 3}
       propertyPath: m_RootOrder
@@ -1011,6 +1035,10 @@ PrefabInstance:
     - target: {fileID: 1692148328290756, guid: 88ef96b98f65c0342a17fbf22c9d5dde, type: 3}
       propertyPath: m_Name
       value: RockCanyon3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692148328290756, guid: 88ef96b98f65c0342a17fbf22c9d5dde, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4544937387420768, guid: 88ef96b98f65c0342a17fbf22c9d5dde, type: 3}
       propertyPath: m_RootOrder
@@ -1131,6 +1159,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawn
       objectReference: {fileID: 0}
+    - target: {fileID: 8976448011242501983, guid: 8aae4f264fdbd9a4086c93be0ba3b9a6,
+        type: 3}
+      propertyPath: waveDuration
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aae4f264fdbd9a4086c93be0ba3b9a6, type: 3}
 --- !u!1001 &288777291
@@ -1143,6 +1176,10 @@ PrefabInstance:
     - target: {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
       propertyPath: m_Name
       value: Rock_Medium_F (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4349711203045790, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
       propertyPath: m_RootOrder
@@ -1218,6 +1255,10 @@ PrefabInstance:
     - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4058346446597378, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_RootOrder
@@ -1324,6 +1365,10 @@ PrefabInstance:
     - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4058346446597378, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_RootOrder
@@ -1613,6 +1658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_Squarish_B
       objectReference: {fileID: 0}
+    - target: {fileID: 1767169066452466, guid: 00c1e36206eeded42aa8f564e1e3e6b8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4783729374961420, guid: 00c1e36206eeded42aa8f564e1e3e6b8, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -1669,7 +1718,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65979690339184000, guid: 00c1e36206eeded42aa8f564e1e3e6b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 00c1e36206eeded42aa8f564e1e3e6b8, type: 3}
 --- !u!4 &474258468 stripped
 Transform:
@@ -1688,21 +1738,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPlainGrey2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1324491234842104, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4865037662534392, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
       propertyPath: m_RootOrder
       value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4865037662534392, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.788691
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4865037662534392, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4865037662534392, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.395157
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 4865037662534392, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1782,6 +1836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPlainGrey3
       objectReference: {fileID: 0}
+    - target: {fileID: 1369417078929220, guid: ab143f35dec115740bdcd10ea7a9e32c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4932845703815896, guid: ab143f35dec115740bdcd10ea7a9e32c, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -1845,6 +1903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPlainBrown1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1625079031878956, guid: 94f9e5b4d978f4f4e86dbe68037085d8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4210924807517078, guid: 94f9e5b4d978f4f4e86dbe68037085d8, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -1907,6 +1969,10 @@ PrefabInstance:
     - target: {fileID: 1798531688922700, guid: f811fe422df660545a9f29076e554a51, type: 3}
       propertyPath: m_Name
       value: Tree_Cube_Autumn_Small (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798531688922700, guid: f811fe422df660545a9f29076e554a51, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4704334324160598, guid: f811fe422df660545a9f29076e554a51, type: 3}
       propertyPath: m_RootOrder
@@ -2013,6 +2079,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_Squarish_A
       objectReference: {fileID: 0}
+    - target: {fileID: 1355672199924954, guid: 577c47549014ad44597b50f8882583c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4801532393717594, guid: 577c47549014ad44597b50f8882583c4, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -2057,7 +2127,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65992822877986196, guid: 577c47549014ad44597b50f8882583c4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 577c47549014ad44597b50f8882583c4, type: 3}
 --- !u!4 &582601575 stripped
 Transform:
@@ -2075,6 +2146,10 @@ PrefabInstance:
     - target: {fileID: 1945168668483306, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_Name
       value: Tree_Large_F (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945168668483306, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_RootOrder
@@ -2139,6 +2214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Large_E
       objectReference: {fileID: 0}
+    - target: {fileID: 1456544242132356, guid: 44ef4afd1e20f65478f7ca1d2c3b00ee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4147976847988356, guid: 44ef4afd1e20f65478f7ca1d2c3b00ee, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -2202,6 +2281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Small_F (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1337294745194694, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -2254,12 +2337,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 715475801}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &723150315 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1945168668483306, guid: aa6d1379907e0af4b933862f1b93b186,
-    type: 3}
-  m_PrefabInstance: {fileID: 912976891}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &749157759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2271,21 +2348,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Small_F (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1337294745194694, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.424803
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77441597
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.4712658
+      value: -1.43
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2365,6 +2446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_CanyonLarge
       objectReference: {fileID: 0}
+    - target: {fileID: 1645614848632794, guid: 03094edba87a7724a9395d699b2205a1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4271191977084570, guid: 03094edba87a7724a9395d699b2205a1, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -2379,7 +2464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4271191977084570, guid: 03094edba87a7724a9395d699b2205a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.3990717
+      value: 5.45
       objectReference: {fileID: 0}
     - target: {fileID: 4271191977084570, guid: 03094edba87a7724a9395d699b2205a1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2458,6 +2543,10 @@ PrefabInstance:
     - target: {fileID: 1798531688922700, guid: f811fe422df660545a9f29076e554a51, type: 3}
       propertyPath: m_Name
       value: Tree_Cube_Autumn_Small
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798531688922700, guid: f811fe422df660545a9f29076e554a51, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4704334324160598, guid: f811fe422df660545a9f29076e554a51, type: 3}
       propertyPath: m_RootOrder
@@ -2553,6 +2642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPlainBrown3
       objectReference: {fileID: 0}
+    - target: {fileID: 1646264418903998, guid: c482aed371dbcf244ad849d0d8bd450c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4215497377130506, guid: c482aed371dbcf244ad849d0d8bd450c, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -2616,6 +2709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Large_F (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1945168668483306, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -2626,7 +2723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2668,20 +2765,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 912976891}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &912976895
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723150315}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 552772bd693d5cc46b7a087cf9c2eb4d, type: 3}
 --- !u!1001 &1041070927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2692,6 +2775,10 @@ PrefabInstance:
     - target: {fileID: 1074166701610162, guid: 0c2977c29c649d84dbb7b57dd5cfde76, type: 3}
       propertyPath: m_Name
       value: RockCanyon2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074166701610162, guid: 0c2977c29c649d84dbb7b57dd5cfde76, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4755356375831290, guid: 0c2977c29c649d84dbb7b57dd5cfde76, type: 3}
       propertyPath: m_RootOrder
@@ -2755,6 +2842,10 @@ PrefabInstance:
     - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4058346446597378, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_RootOrder
@@ -2831,6 +2922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4058346446597378, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -2905,6 +3000,10 @@ PrefabInstance:
     - target: {fileID: 1692148328290756, guid: 88ef96b98f65c0342a17fbf22c9d5dde, type: 3}
       propertyPath: m_Name
       value: RockCanyon3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692148328290756, guid: 88ef96b98f65c0342a17fbf22c9d5dde, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4544937387420768, guid: 88ef96b98f65c0342a17fbf22c9d5dde, type: 3}
       propertyPath: m_RootOrder
@@ -3058,6 +3157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom1
       objectReference: {fileID: 0}
+    - target: {fileID: 1788027610439308, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4058346446597378, guid: acb4b7f29115c1741ab5097c8b15d4bb, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -3133,6 +3236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Small_A
       objectReference: {fileID: 0}
+    - target: {fileID: 1714570662975598, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4017841852035310, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -3143,11 +3250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4017841852035310, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4017841852035310, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8048468
+      value: -3.29
       objectReference: {fileID: 0}
     - target: {fileID: 4017841852035310, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3195,6 +3302,10 @@ PrefabInstance:
     - target: {fileID: 1831113590664118, guid: 1856a7dc29240a9408ef11bdb6f050b1, type: 3}
       propertyPath: m_Name
       value: RockPlainBrown2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831113590664118, guid: 1856a7dc29240a9408ef11bdb6f050b1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4392607996493758, guid: 1856a7dc29240a9408ef11bdb6f050b1, type: 3}
       propertyPath: m_RootOrder
@@ -3672,6 +3783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom3
       objectReference: {fileID: 0}
+    - target: {fileID: 1223960932302318, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4535575937781324, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -3777,6 +3892,10 @@ PrefabInstance:
     - target: {fileID: 1714570662975598, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
       propertyPath: m_Name
       value: Tree_Small_A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714570662975598, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4017841852035310, guid: 5b4ffe4e48bc5544db58293f525e46af, type: 3}
       propertyPath: m_RootOrder
@@ -4029,6 +4148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1223960932302318, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4535575937781324, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -4103,6 +4226,10 @@ PrefabInstance:
     - target: {fileID: 1768441419515472, guid: 47877ed992ed5a54bba55b42fe889531, type: 3}
       propertyPath: m_Name
       value: Stone_Squarish_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768441419515472, guid: 47877ed992ed5a54bba55b42fe889531, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4683985960939038, guid: 47877ed992ed5a54bba55b42fe889531, type: 3}
       propertyPath: m_RootOrder
@@ -4198,7 +4325,7 @@ PrefabInstance:
     - target: {fileID: 9053217152389647090, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0510757
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9053217152389647090, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
@@ -4208,7 +4335,7 @@ PrefabInstance:
     - target: {fileID: 9053217152389647090, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.025
+      value: -5.756
       objectReference: {fileID: 0}
     - target: {fileID: 9053217152389647090, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
@@ -4346,6 +4473,10 @@ PrefabInstance:
     - target: {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
       propertyPath: m_Name
       value: Rock_Medium_F
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4349711203045790, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
       propertyPath: m_RootOrder
@@ -4548,6 +4679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPlainBrown2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1831113590664118, guid: 1856a7dc29240a9408ef11bdb6f050b1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4392607996493758, guid: 1856a7dc29240a9408ef11bdb6f050b1, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -4611,6 +4746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Large_F (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1945168668483306, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -4621,7 +4760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4674,6 +4813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Small_F (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1337294745194694, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -4684,11 +4827,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4483242
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.0384903
+      value: 2.73
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4736,6 +4879,10 @@ PrefabInstance:
     - target: {fileID: 1324491234842104, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
       propertyPath: m_Name
       value: RockPlainGrey2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324491234842104, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4865037662534392, guid: bee7a7386cf1b404395a72552487dd73, type: 3}
       propertyPath: m_RootOrder
@@ -4800,6 +4947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Large_F
       objectReference: {fileID: 0}
+    - target: {fileID: 1945168668483306, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4553043206151858, guid: aa6d1379907e0af4b933862f1b93b186, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -4863,6 +5014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Small_F (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1337294745194694, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -4873,11 +5028,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69977
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9746447
+      value: 4.49
       objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4926,6 +5081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bones_Crossbones (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1494138323695188, guid: 8d62cd78cacebae41a485b535b9084f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4791609172429814, guid: 8d62cd78cacebae41a485b535b9084f7, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4944,7 +5103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791609172429814, guid: 8d62cd78cacebae41a485b535b9084f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.43
+      value: 4.05
       objectReference: {fileID: 0}
     - target: {fileID: 4791609172429814, guid: 8d62cd78cacebae41a485b535b9084f7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4952,7 +5111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791609172429814, guid: 8d62cd78cacebae41a485b535b9084f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.92
+      value: 3.89
       objectReference: {fileID: 0}
     - target: {fileID: 4791609172429814, guid: 8d62cd78cacebae41a485b535b9084f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5127,6 +5286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bone
       objectReference: {fileID: 0}
+    - target: {fileID: 1496795018102952, guid: a11d7754f1413484da15c539403944fc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4509009313187342, guid: a11d7754f1413484da15c539403944fc, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -5285,6 +5448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Small_F (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1337294745194694, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4528539522805138, guid: bd52ef0a52b48504789da40eaf465a6e, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -5347,6 +5514,10 @@ PrefabInstance:
     - target: {fileID: 1223960932302318, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
       propertyPath: m_Name
       value: Mushroom3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223960932302318, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4535575937781324, guid: 6ff4623ce823f1c479700cc375d08f5d, type: 3}
       propertyPath: m_RootOrder

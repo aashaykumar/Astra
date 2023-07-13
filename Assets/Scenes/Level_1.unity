@@ -4857,6 +4857,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6949110629760383278}
+    - target: {fileID: 8383861304173330477, guid: e4c12388839a3e44198418b598174cd0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383861304173330477, guid: e4c12388839a3e44198418b598174cd0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8383861304590309680, guid: e4c12388839a3e44198418b598174cd0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9134,6 +9144,16 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 6949110629760383279}
+    - target: {fileID: 1770129667537506090, guid: 970578e9b80e27143aafab171f80a358,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770129667537506090, guid: 970578e9b80e27143aafab171f80a358,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Touch
+      objectReference: {fileID: 0}
     - target: {fileID: 4107144265040479384, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: healthBar

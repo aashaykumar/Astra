@@ -13,7 +13,7 @@ public class AnimationAndMovementController : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 3f;
     [SerializeField]
-    private float arrowForce = 20f;
+    private float arrowForce = 15f;
 
     Vector3 targetPosition;
     
@@ -51,6 +51,7 @@ public class AnimationAndMovementController : MonoBehaviour
     {
         if (gameManagerScript.currentState == GameState.Playing)
         {
+            Debug.Log("x" + touchPositionAction.ReadValue<Vector2>());
             Ray ray = mainCamera.ScreenPointToRay(touchPositionAction.ReadValue<Vector2>());
             if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit) && hit.collider)
             {
@@ -131,10 +132,10 @@ public class AnimationAndMovementController : MonoBehaviour
         stats.UpdateArrowCount();
     }
 
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(targetPosition,1);
-    }*/
+        Gizmos.DrawSphere(targetPosition, 1);
+    }
 
 }

@@ -16,16 +16,16 @@ MonoBehaviour:
   currentHealth: 100
   playerLevel: 1
   playerMaxLevel: 10
-  playerTempXP: 0
-  playerMaxXpPerLevel: 100
+  playerTempXP: 150
+  playerMaxXpPerLevel: 150
   playerCurrentXP: 0
   maxArmor: 50
   armor: 5
-  playerAccuracy: 0
+  playerAccuracy: 1
   playerKDA: 0
-  totalEnemyKillCount: 0
-  totalArrowFired: 0
-  totalArrowHitEnemy: 0
+  totalEnemyKillCount: 3
+  totalArrowFired: 10
+  totalArrowHitEnemy: 10
   totalPlayerDeathCount: 0
-  totalGoldCoin: 0
-  GameCurrentLevel: 1
+  totalGoldCoin: 600
+  GameCurrentLevel: 3

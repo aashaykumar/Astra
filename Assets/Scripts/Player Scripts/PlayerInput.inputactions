@@ -1,14 +1,14 @@
 {
-    "name": "Player Input",
+    "name": "PlayerInput",
     "maps": [
         {
             "name": "Touch",
-            "id": "17ef5958-29b8-40e4-997a-9164a2f68245",
+            "id": "c2cec74b-c481-41e0-b08d-6566d1b7cb31",
             "actions": [
                 {
                     "name": "TouchPosition",
                     "type": "Value",
-                    "id": "2ce321de-d5a6-4588-80c7-1cb815c44c7d",
+                    "id": "18a51164-e705-4d00-8778-894962138075",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,19 +17,19 @@
                 {
                     "name": "TouchPress",
                     "type": "Button",
-                    "id": "2b57e322-0e50-438f-9c97-b5f08a16a8be",
+                    "id": "f698493d-c5de-46ce-a43c-e5f695891e48",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "b8761028-22b4-4fb6-aab2-e16195211d94",
-                    "path": "<Touchscreen>/position",
-                    "interactions": "Tap",
+                    "id": "b12bd7b5-86e2-408e-9234-1fe9593e5678",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "TouchPosition",
@@ -38,8 +38,8 @@
                 },
                 {
                     "name": "",
-                    "id": "c1f37188-6dff-4a09-bf1d-5b37a31a9b95",
-                    "path": "<Touchscreen>/Press",
+                    "id": "c60fbf6a-3429-4f53-a89a-30ce92686b04",
+                    "path": "<Touchscreen>/primaryTouch/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

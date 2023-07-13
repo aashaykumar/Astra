@@ -2362,7 +2362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: c02ae7d40e4bf5c4caae734fbd3243db,
+  m_Actions: {fileID: -944628639613478452, guid: 1866701a5a7e488499be92ee5d22df13,
     type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -2388,7 +2388,7 @@ MonoBehaviour:
       Touchscreen/press]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Touch
+  m_DefaultActionMap: c2cec74b-c481-41e0-b08d-6566d1b7cb31
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1558777974653559305
