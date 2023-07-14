@@ -9159,6 +9159,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 550944230}
+    - target: {fileID: 5107239195670311881, guid: 970578e9b80e27143aafab171f80a358,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: e5c442a6818de224e9d7e9cccb44b2b0, type: 3}
     - target: {fileID: 5772872982159520512, guid: 970578e9b80e27143aafab171f80a358,
         type: 3}
       propertyPath: m_Name
