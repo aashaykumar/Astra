@@ -15,22 +15,11 @@ public class GameInitializer : MonoBehaviour
 
     private void Awake()
     {
-        InitGame();
+        //InitGame();
     }
 
     private void InitGame()
     {
         stats.ResetPlayerAllStats();
-    }
-
-    public void UpdatePlayerStatsText()
-    {
-        stats.printPlayerValue();
-        txtGoldValue.text = stats.totalGoldCoin.ToString();
-        txtPlayerLevel.text = stats.playerLevel.ToString();
-        txtXPValue.text = stats.playerCurrentXP.ToString() + "/" + stats.playerMaxXpPerLevel.ToString();
-        txtKills.text = "Kills : " + stats.totalEnemyKillCount.ToString();
-        txtAccuracy.text = "Accuracy : " + stats.playerAccuracy.ToString();
-        txtKD.text = "KD : " + stats.playerKDA.ToString();
     }
 }

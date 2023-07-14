@@ -9,14 +9,14 @@ public class AnimationAndMovementController : MonoBehaviour
 
 
     [SerializeField]
-    private float playerSpeed= 2f;
+    private float playerSpeed = 2f;
     [SerializeField]
     private float rotationSpeed = 3f;
     [SerializeField]
     private float arrowForce = 15f;
 
     Vector3 targetPosition;
-    
+
     private Camera mainCamera;
     private Coroutine coroutine;
     private InputAction touchPositionAction;
@@ -29,7 +29,7 @@ public class AnimationAndMovementController : MonoBehaviour
     bool isAiming;
     float rotationFactorPerFrame = 1f;
     float speed = 1f;
-    
+
     CharacterController characterController;
     Animator animator;
     [SerializeField] private PlayerStats stats;
@@ -51,7 +51,6 @@ public class AnimationAndMovementController : MonoBehaviour
     {
         if (gameManagerScript.currentState == GameState.Playing)
         {
-            Debug.Log("x" + touchPositionAction.ReadValue<Vector2>());
             Ray ray = mainCamera.ScreenPointToRay(touchPositionAction.ReadValue<Vector2>());
             if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit) && hit.collider)
             {
@@ -80,13 +79,14 @@ public class AnimationAndMovementController : MonoBehaviour
     }
     private void Update()
     {
-        if (isMovementPressed) 
+        if (isMovementPressed)
         {
             PlayerMoveTowards(targetPosition);
         }
     }
-    
-    public void PlayerMoveTowards(Vector3 target){
+
+    public void PlayerMoveTowards(Vector3 target)
+    {
         float playerDistanceToFloor = transform.position.y - target.y;
         target.y += playerDistanceToFloor;
         if (Vector3.Distance(transform.position, target) > 0.1f && isMovementPressed)
@@ -106,12 +106,12 @@ public class AnimationAndMovementController : MonoBehaviour
 
     public void handleRotation(Vector3 target)
     {
-       float playerDistanceToFloor = transform.position.y - target.y;
+        float playerDistanceToFloor = transform.position.y - target.y;
         target.y += playerDistanceToFloor;
         Vector3 direction = target - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction.normalized), 1f);
     }
-    
+
     private void OnEnable()
     {
         touchPressAction.performed += onMovementInput;
@@ -124,7 +124,7 @@ public class AnimationAndMovementController : MonoBehaviour
 
     public void Shoot()
     {
-         GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.PlayerArrow);
+        GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.PlayerArrow);
         //GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
         obj.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce, ForceMode.VelocityChange);
         animator.SetBool("isWalking", false);
@@ -132,10 +132,10 @@ public class AnimationAndMovementController : MonoBehaviour
         stats.UpdateArrowCount();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(targetPosition, 1);
-    }
+    /*private void OnDrawGizmos()
+     {
+         Gizmos.color = Color.yellow;
+         Gizmos.DrawSphere(targetPosition, 1);
+     }*/
 
 }

@@ -384,18 +384,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1436245815 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5729043557605674628, guid: d3f9fe8d155ce124f869f23e04ca0c36,
-    type: 3}
-  m_PrefabInstance: {fileID: 5729043558195127990}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 469a6187c94436d49a6c795da02f9d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1473647482
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,9 +668,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1436245815}
+      objectReference: {fileID: 1387174076020988939}
+    - target: {fileID: 9200808601688061456, guid: d08c5e3859548e447b2a43cead4f8f7d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdatePlayerStatsText
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200808601688061456, guid: d08c5e3859548e447b2a43cead4f8f7d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GUIScript, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d08c5e3859548e447b2a43cead4f8f7d, type: 3}
+--- !u!114 &1387174076020988939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 966785083, guid: d08c5e3859548e447b2a43cead4f8f7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1387174076020988938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86bce00a80aeb3941aa4c4a13a15a522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5729043558195127990
 PrefabInstance:
   m_ObjectHideFlags: 0

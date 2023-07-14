@@ -49,13 +49,15 @@ public class GameManagerScript : MonoBehaviour
         enemyStats.UpdateEnemyStats(currentLevel);
         if (currentLevel % 3 == 0)
         {
+            currentLevelObjective = 1;
             bossStats.UpdateEnemyStats(currentLevel);
         }
-        currentLevelObjective = currentLevel * 2;
+        else
+            currentLevelObjective = currentLevel + 1;
     }
 
     private void Start()
-    {  
+    {
         currentState = GameState.Playing;
         Time.timeScale = 1f;
     }
@@ -85,9 +87,9 @@ public class GameManagerScript : MonoBehaviour
     public void checkforLevelObjective()
     {
         currentObjective = currentObjective + 1;
-        txtcurrentObjective.text = currentObjective.ToString()+ "/" + currentLevelObjective.ToString();
+        txtcurrentObjective.text = currentObjective.ToString() + "/" + currentLevelObjective.ToString();
         if (currentObjective == currentLevelObjective)
-           GameWon();
+            GameWon();
     }
 
     public void Gamelose()
@@ -109,16 +111,16 @@ public class GameManagerScript : MonoBehaviour
     {
         currentState = GameState.GameOver;
         Time.timeScale = 0f;
-        if (currentLevel < 5 && currentLevel == playerStats.GameCurrentLevel)
+        if (currentLevel < 3 && currentLevel == playerStats.GameCurrentLevel)
         {
             playerStats.GameCurrentLevel = playerStats.GameCurrentLevel + 1;
             playerStats.UpdatePlayerStats(currentLevel, false);
         }
-        else if ((currentLevel < 5 && currentLevel != playerStats.GameCurrentLevel))
+        else if ((currentLevel < 3 && currentLevel != playerStats.GameCurrentLevel))
         {
-            playerStats.UpdatePlayerStats(currentLevel,true);
+            playerStats.UpdatePlayerStats(currentLevel, true);
         }
-        else if (currentLevel == 5)
+        else if (currentLevel == 3)
         {
             currentLevel = 1;
             playerStats.GameCurrentLevel = 1;
@@ -160,7 +162,7 @@ public class GameManagerScript : MonoBehaviour
     public void PlayNextLevel()
     {
         playerStats.ResetPlayerTempXP();
-        if (SceneManager.GetActiveScene().buildIndex == 5)
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             playerStats.ResetPlayerAllStats();
             systems.Instance.GetComponentInChildren<GUIScript>().LoadScene(1);
@@ -170,19 +172,19 @@ public class GameManagerScript : MonoBehaviour
             systems.Instance.GetComponentInChildren<GUIScript>().LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void LoadMainMenuScreen() 
+    public void LoadMainMenuScreen()
     {
         systems.Instance.GetComponentInChildren<GUIScript>().LoadScene(0);
         //SceneManager.LoadScene("ScreenTransitions");
         systems.Instance.GetComponentInChildren<GUIScript>().LoadMainMenuScreen();
     }
-    
+
     public void LoadSettingScreen()
     {
         systems.Instance.GetComponentInChildren<GUIScript>().LoadSettingScreen();
     }
 
-    public int GetCurrentLevel() 
+    public int GetCurrentLevel()
     {
         return currentLevel;
     }

@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public GameObject arrowObject;
     public Transform arrowPoint;
     public EnemyType enemyType;
+    public EnemyAttackType enemyAttackType;
 
     [SerializeField] public EnemyStats enemyStats;
     [SerializeField] private PlayerStats playerStats;
@@ -36,7 +37,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         healthBar.value = HP;
-        
+
     }
 
     private void LateUpdate()
@@ -60,20 +61,25 @@ public class Enemy : MonoBehaviour
             playerStats.UpdatePlayerStatsOnEnemyKill(1);
             isDead = true;
             animator.SetTrigger("die");
-            
+
             //animator.applyRootMotion = false;
             StartCoroutine(waitForEnemyDie());
-            gameManagerScript.checkforLevelObjective();
+            if (gameManagerScript.GetCurrentLevel() % 3 == 0 && enemyType == EnemyType.Boss)
+            {
+                gameManagerScript.checkforLevelObjective();
+            }
+            else if (gameManagerScript.GetCurrentLevel() % 3 != 0 && enemyType == EnemyType.Swarm)
+                gameManagerScript.checkforLevelObjective();
         }
         else
         {
             animator.SetTrigger("damage");
         }
 
-         IEnumerator waitForEnemyDie()
+        IEnumerator waitForEnemyDie()
         {
             yield return new WaitForSeconds(2);
-            if (enemyType == EnemyType.Range)
+            if (enemyAttackType == EnemyAttackType.Range)
                 UpdateToObjectPool();
             else
                 Destroy(gameObject);
@@ -89,9 +95,15 @@ public class Enemy : MonoBehaviour
         ObjectPoolingManager.ReturnObjectToPool(gameObject);
     }
 
-    public enum EnemyType
+    public enum EnemyAttackType
     {
         Range,
         Meelee
+    }
+
+    public enum EnemyType
+    {
+        Swarm,
+        Boss
     }
 }

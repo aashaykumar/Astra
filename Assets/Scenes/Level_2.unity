@@ -4325,6 +4325,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawn
       objectReference: {fileID: 0}
+    - target: {fileID: 8976448011242501983, guid: 8aae4f264fdbd9a4086c93be0ba3b9a6,
+        type: 3}
+      propertyPath: waveDuration
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aae4f264fdbd9a4086c93be0ba3b9a6, type: 3}
 --- !u!1001 &761895250
