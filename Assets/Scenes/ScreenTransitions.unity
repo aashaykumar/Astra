@@ -539,10 +539,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 273215880}
     m_Modifications:
+    - target: {fileID: 966785083, guid: d08c5e3859548e447b2a43cead4f8f7d, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 8383861304590309681, guid: e4c12388839a3e44198418b598174cd0,
+        type: 3}
     - target: {fileID: 1387174075088200761, guid: d08c5e3859548e447b2a43cead4f8f7d,
         type: 3}
       propertyPath: m_Name
       value: GUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387174075088200764, guid: d08c5e3859548e447b2a43cead4f8f7d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1387174075088200765, guid: d08c5e3859548e447b2a43cead4f8f7d,
         type: 3}
@@ -654,6 +664,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1550478443}
+    - target: {fileID: 1796980754466687679, guid: d08c5e3859548e447b2a43cead4f8f7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4003410253482949655, guid: d08c5e3859548e447b2a43cead4f8f7d,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -59,7 +59,6 @@ public class GUIScript : MonoBehaviour
 
     public void CloseSettingScreen()
     {
-
         int index = SceneManager.GetActiveScene().buildIndex;
         if (index == 0)
         {
@@ -82,11 +81,11 @@ public class GUIScript : MonoBehaviour
 
         do
         {
-            //await Task.Delay(100);
+            await Task.Delay(100);
             loadingBar.value = scene.progress;
         } while (scene.progress < 0.9f);
 
-        await Task.Delay(1000);
+        await Task.Delay(500);
         scene.allowSceneActivation = true;
         LoadingScreen.SetActive(false);
     }

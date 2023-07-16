@@ -13,7 +13,7 @@ public class AnimationAndMovementController : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 3f;
     [SerializeField]
-    private float arrowForce = 15f;
+    private float arrowForce = 10f;
 
     Vector3 targetPosition;
 

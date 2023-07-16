@@ -184,6 +184,11 @@ public class GameManagerScript : MonoBehaviour
         systems.Instance.GetComponentInChildren<GUIScript>().LoadSettingScreen();
     }
 
+    public void CLoseSettingScreen()
+    {
+        systems.Instance.GetComponentInChildren<GUIScript>().CloseSettingScreen();
+    }
+
     public int GetCurrentLevel()
     {
         return currentLevel;

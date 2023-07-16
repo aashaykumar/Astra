@@ -24,8 +24,7 @@ public class ChaseState : StateMachineBehaviour
         float distance = Vector2.Distance(player.position, animator.transform.position);
         /*Vector3 direction = player.position - animator.transform.position;
         animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, Quaternion.LookRotation(direction.normalized), 0.9f);
-*/      Debug.Log("attack range"+ AttackRange);
-        if (distance <= AttackRange)
+*/     if (distance <= AttackRange)
         {
             agent.speed = 0;
             animator.SetBool("isAttacking", true);

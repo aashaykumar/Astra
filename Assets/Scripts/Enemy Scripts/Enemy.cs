@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     {
         GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.EnemyArrow);
         //GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
-        obj.GetComponent<Rigidbody>().AddForce(transform.forward * 15f, ForceMode.VelocityChange);
+        obj.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.VelocityChange);
     }
 
     public void TakeDamage(int damageAmount)

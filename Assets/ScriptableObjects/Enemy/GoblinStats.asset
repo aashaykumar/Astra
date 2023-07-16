@@ -20,7 +20,7 @@ MonoBehaviour:
   ArmorMultiplerPerLevel: 2
   HealthMultiplerPerLevel: 10
   armor: 0
-  patrolSpeed: 0.5
-  chaseSpeed: 1
+  patrolSpeed: 1.2
+  chaseSpeed: 1.4
   attackDamage: 10
-  attackRange: 6
+  attackRange: 5
