@@ -9,8 +9,8 @@ public class PlayerSoundController : MonoBehaviour
 
     private void Awake()
     {
-       //float tempSoundValue = AudioSystem.Instance.SoundEffectsFloat;
-        //source.volume = tempSoundValue;
+       float tempSoundValue = systems.Instance.GetComponentInChildren<AudioSystem>().SoundEffectsFloat;
+        source.volume = tempSoundValue;
     }
     void WalkSound()
     {

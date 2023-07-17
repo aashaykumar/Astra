@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class IdleState : StateMachineBehaviour
 {
-    float timer;
     Transform player;
+
+    float timer;
+
     float chaseRange = 8;
+
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -18,7 +23,7 @@ public class IdleState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer += Time.deltaTime;
-        if (timer > 2)
+        if (timer > 1)
        {
             animator.SetBool("isPatrolling", true);
         }
@@ -27,8 +32,6 @@ public class IdleState : StateMachineBehaviour
         if (distance < chaseRange)
         {
             animator.SetBool("isChasing", true);
-            animator.SetBool("isPatrolling", false);
-            animator.SetBool("isAttacking", false);
         }
     }
 

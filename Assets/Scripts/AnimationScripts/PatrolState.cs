@@ -8,17 +8,20 @@ public class PatrolState : StateMachineBehaviour
 {
     float timer;
     Transform player;
+    EnemyStats stats;
     List<Transform> wayPoints = new List<Transform>();
     NavMeshAgent agent;
-    float chaseRange = 6;
-    float patrolRange = 2;
+    float chaseRange = 8;
+    float patrolRange = 4;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
         timer = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-       GameObject go = GameObject.FindGameObjectWithTag("WayPoints");
+        GameObject go = GameObject.FindGameObjectWithTag("WayPoints");
+        stats = animator.GetComponent<Enemy>().enemyStats;
+        agent.speed = stats.patrolSpeed;
         foreach (Transform t in go.transform)
             wayPoints.Add(t);
 
@@ -30,7 +33,6 @@ public class PatrolState : StateMachineBehaviour
     {
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            animator.SetBool("isPatrolling", false);
             agent.SetDestination(wayPoints[Random.Range(0, wayPoints.Count)].position);
             return;
         }

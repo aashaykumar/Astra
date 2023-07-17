@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +14,6 @@ public enum GameState
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] GameObject resultScreen;
-    [SerializeField] GameObject mainMenuScreen;
     [SerializeField] GameObject PauseScreen;
     [SerializeField] GameObject Stars;
     [SerializeField] GameObject NextLevel;
@@ -33,15 +29,32 @@ public class GameManagerScript : MonoBehaviour
 
     private int currentLevel = 1;
     private int currentObjective = 0;
-    private int currentLevelObjective = 3;
+    private int currentLevelObjective = 2;
     private float timer = 120f;
 
-    [SerializeField] private PlayerStats stats;
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private EnemyStats bossStats;
 
     private void Awake()
     {
+        UpdateGameData();
+        txtTimer.color = Color.white;
         txtcurrentObjective.text = currentObjective.ToString() + "/" + currentLevelObjective.ToString();
         txtTimer.text = "2:00";
+    }
+
+    private void UpdateGameData()
+    {
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        enemyStats.UpdateEnemyStats(currentLevel);
+        if (currentLevel % 3 == 0)
+        {
+            currentLevelObjective = 1;
+            bossStats.UpdateEnemyStats(currentLevel);
+        }
+        else
+            currentLevelObjective = currentLevel + 1;
     }
 
     private void Start()
@@ -65,6 +78,10 @@ public class GameManagerScript : MonoBehaviour
             int seconds = Mathf.FloorToInt(timer % 60);
             int min = Mathf.FloorToInt(timer / 60);
             txtTimer.text = min.ToString() + ":" + seconds.ToString();
+            if(timer > 0 && timer < 31)
+            {
+                txtTimer.color = Color.red;
+            }
         }
         else if (timer <= 0)
         {
@@ -75,44 +92,55 @@ public class GameManagerScript : MonoBehaviour
     public void checkforLevelObjective()
     {
         currentObjective = currentObjective + 1;
-        txtcurrentObjective.text = currentObjective.ToString()+ "/" + currentLevelObjective.ToString();
+        txtcurrentObjective.text = currentObjective.ToString() + "/" + currentLevelObjective.ToString();
         if (currentObjective == currentLevelObjective)
-        {
             GameWon();
-        }
     }
 
     public void Gamelose()
     {
         currentState = GameState.GameOver;
-        AudioSystem.Instance.Play("GameLose");
+        systems.Instance.GetComponentInChildren<AudioSystem>().Play("GameLose");
+        Time.timeScale = 0f;
         txtResultStatus.text = "DEFEAT";
         txtResultMsg.text = "YOU LOST!";
-        txtGoldValue.text = stats.totalGoldCoin.ToString();
-        txtPlayerLevel.text = stats.playerLevel.ToString();
-        txtXPValue.text = stats.playerCurrentXP.ToString() + "/" + stats.playerMaxXpPerLevel.ToString();
+        txtGoldValue.text = playerStats.totalGoldCoin.ToString();
+        txtPlayerLevel.text = playerStats.playerLevel.ToString();
+        txtXPValue.text = playerStats.playerCurrentXP.ToString() + "/" + playerStats.playerMaxXpPerLevel.ToString();
         Stars.SetActive(false);
         NextLevel.SetActive(false);
-        mainMenuScreen.SetActive(false);
         resultScreen.SetActive(true);
-        Time.timeScale = 0f;
     }
 
     public void GameWon()
     {
         currentState = GameState.GameOver;
-        AudioSystem.Instance.Play("GameWin");
-        currentLevel = currentLevel + 1;
-        stats.UpdatePlayerStats(currentLevel);
+        Time.timeScale = 0f;
+        if (currentLevel < 3 && currentLevel == playerStats.GameCurrentLevel)
+        {
+            playerStats.GameCurrentLevel = playerStats.GameCurrentLevel + 1;
+            playerStats.UpdatePlayerStats(currentLevel, false);
+        }
+        else if ((currentLevel < 3 && currentLevel != playerStats.GameCurrentLevel))
+        {
+            playerStats.UpdatePlayerStats(currentLevel, true);
+        }
+        else if (currentLevel == 3)
+        {
+            currentLevel = 1;
+            playerStats.GameCurrentLevel = 1;
+            playerStats.ResetPlayerAllStats();
+            enemyStats.ResetEnemyAllStats();
+        }
+        systems.Instance.GetComponentInChildren<AudioSystem>().Play("GameWin");
         txtResultStatus.text = "VICTORY";
         txtResultMsg.text = "YOU WON!";
-        txtGoldValue.text = stats.totalGoldCoin.ToString();
-        txtPlayerLevel.text = stats.playerLevel.ToString();
+        txtGoldValue.text = playerStats.totalGoldCoin.ToString();
+        txtPlayerLevel.text = playerStats.playerLevel.ToString();
+        txtXPValue.text = playerStats.playerCurrentXP.ToString() + "/" + playerStats.playerMaxXpPerLevel.ToString();
         Stars.SetActive(true);
         NextLevel.SetActive(true);
-        mainMenuScreen.SetActive(false);
         resultScreen.SetActive(true);
-        Time.timeScale = 0f;
     }
 
     public void GamePause()
@@ -131,21 +159,42 @@ public class GameManagerScript : MonoBehaviour
 
     public void GameRestart()
     {
-        SceneManager.LoadScene("Level_1");
+        playerStats.ResetPlayerTempXP();
+        systems.Instance.GetComponentInChildren<GUIScript>().LoadScene(currentLevel);
+        //SceneManager.LoadScene(currentLevel);
     }
 
     public void PlayNextLevel()
     {
-        SceneManager.LoadScene("Level_1");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        playerStats.ResetPlayerTempXP();
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            playerStats.ResetPlayerAllStats();
+            systems.Instance.GetComponentInChildren<GUIScript>().LoadScene(1);
+            //SceneManager.LoadScene("Level_1");
+        }
+        else
+            systems.Instance.GetComponentInChildren<GUIScript>().LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void LoadMainMenuScreen() 
+    public void LoadMainMenuScreen()
     {
-        SceneManager.LoadScene("ScreenTransitions");
+        systems.Instance.GetComponentInChildren<GUIScript>().LoadScene(0);
+        //SceneManager.LoadScene("ScreenTransitions");
+        systems.Instance.GetComponentInChildren<GUIScript>().LoadMainMenuScreen();
     }
 
-    public int GetCurrentLevel() 
+    public void LoadSettingScreen()
+    {
+        systems.Instance.GetComponentInChildren<GUIScript>().LoadSettingScreen();
+    }
+
+    public void CLoseSettingScreen()
+    {
+        systems.Instance.GetComponentInChildren<GUIScript>().CloseSettingScreen();
+    }
+
+    public int GetCurrentLevel()
     {
         return currentLevel;
     }

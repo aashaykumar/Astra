@@ -20,6 +20,7 @@ public class PlayerStats : ScriptableObject
     public int totalArrowHitEnemy = 0;
     public int totalPlayerDeathCount = 0;
     public int totalGoldCoin = 0;
+    public int GameCurrentLevel = 1;
 
     public int Health
     {
@@ -42,7 +43,7 @@ public class PlayerStats : ScriptableObject
 
     public void checkPlayerPrefsKeysAndValue()
     {
-       //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         ResetPlayerTempXP();
         if (!PlayerPrefs.HasKey("PlayerHealth"))
             PlayerPrefs.SetInt("PlayerHealth", currentHealth);
@@ -164,29 +165,35 @@ public class PlayerStats : ScriptableObject
     public void ResetPlayerTempXP()
     {
         playerTempXP = 0;
+        currentHealth = (100 + (playerLevel - 1) * 20) >= maxHealth ? maxHealth : (100 + (playerLevel - 1) * 20);
     }
 
-    public void UpdatePlayerStats(int gameLevel)
+    public void UpdatePlayerStats(int gameLevel,bool isPlayingAgain)
     {
         if (playerLevel < playerMaxLevel)
         {
-            if (playerTempXP >= playerMaxXpPerLevel)
+            if (isPlayingAgain)
             {
-                playerTempXP = playerTempXP - playerMaxXpPerLevel;
+                playerTempXP = ((int)(playerTempXP * 0.01));
+            }
+            if (playerTempXP >= (playerMaxXpPerLevel - playerCurrentXP))
+            {
+                playerTempXP = playerTempXP - (playerMaxXpPerLevel - playerCurrentXP);
                 playerLevel = playerLevel + 1;
-                currentHealth = (currentHealth +  playerLevel * 20) >= maxHealth ? maxHealth : (currentHealth + playerLevel * 20);
-                armor = (playerLevel * 5) > maxArmor ? maxArmor : (playerLevel * 5);
+                currentHealth = (currentHealth + playerLevel * 20) >= maxHealth ? maxHealth : (currentHealth + playerLevel * 20);
+                armor = (playerLevel * 5) >= maxArmor ? maxArmor : (playerLevel * 5);
                 playerMaxXpPerLevel = (playerMaxXpPerLevel * gameLevel);
+
                 PlayerPrefs.SetInt("PlayerLevel", playerLevel);
                 PlayerPrefs.SetInt("PlayerXP", playerMaxXpPerLevel);
                 PlayerPrefs.SetInt("PlayerArmor", armor);
                 PlayerPrefs.SetInt("PlayerHealth", currentHealth);
                 PlayerPrefs.Save();
-                UpdatePlayerStats(gameLevel);
+                UpdatePlayerStats(gameLevel, false);
             }
-            else if (playerTempXP < playerMaxXpPerLevel)
+            else if (playerTempXP < (playerMaxXpPerLevel - playerCurrentXP))
             {
-                playerCurrentXP = playerTempXP;
+                playerCurrentXP = playerCurrentXP + playerTempXP;
                 PlayerPrefs.SetInt("PlayerXP", playerCurrentXP);
                 PlayerPrefs.Save();
             }
@@ -195,8 +202,33 @@ public class PlayerStats : ScriptableObject
 
     public void TakeDamage(int damageAmount)
     {
-        damageAmount -= armor;
-        Health -= damageAmount;
+        if (Health > 0)
+        {
+            damageAmount -= armor;
+            Health -= damageAmount;
+            Debug.Log("IN Take Damage" + Health);
+        }
+        
     }
 
+    public void ResetPlayerAllStats()
+    {
+        maxHealth = 200;
+        currentHealth = 100;
+        playerLevel = 1;
+        playerMaxLevel = 10;
+        playerTempXP = 0;
+        playerMaxXpPerLevel = 150;
+        playerCurrentXP = 0;
+        maxArmor = 50;
+        armor = 5;
+        playerAccuracy = 0;
+        playerKDA = 0;
+        totalEnemyKillCount = 0;
+        totalArrowFired = 0;
+        totalArrowHitEnemy = 0;
+        totalPlayerDeathCount = 0;
+        totalGoldCoin = 0;
+        GameCurrentLevel = 1;
+    }
 }

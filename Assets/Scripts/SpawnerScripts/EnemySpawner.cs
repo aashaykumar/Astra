@@ -1,35 +1,47 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
     public List<EnemyCost> enemies = new List<EnemyCost>();
     public int currentWave;
     private int waveValue;
-
     public int waveDuration;
 
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
-    
+    private int gamelevel;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
+
+    private void Awake()
+    {
+        gamelevel = SceneManager.GetActiveScene().buildIndex;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        
+        
+            if ( gamelevel % 3 == 0 )
+            {
+                GenerateBossEnemy();
+            }
         GenerateWave();
     }
 
     public void GenerateWave()
     {
-        waveValue = currentWave * 1;
+        waveValue = currentWave;
         GenerateEnemies();
 
-        spawnInterval = waveDuration/enemiesToSpawn.Count;
+        spawnInterval = waveDuration / enemiesToSpawn.Count;
 
-        waveTimer = waveDuration;
+        waveTimer = 120f;
     }
 
     public void GenerateEnemies()
@@ -37,11 +49,12 @@ public class EnemySpawner : MonoBehaviour
         List<GameObject> generatedEnemies = new List<GameObject>();
         while(waveValue > 0)
         {
-            int randEnemyCost = enemies[0].cost;
+            int randEnemyId = UnityEngine.Random.Range(0, enemies.Count - 1);
+            int randEnemyCost = enemies[randEnemyId].cost;
 
             if(waveValue - randEnemyCost >= 0) 
             {
-                generatedEnemies.Add(enemies[0].enemyPrefab);
+               generatedEnemies.Add(enemies[randEnemyId].enemyPrefab);
                 waveValue -= randEnemyCost;
             }
             else if(waveValue <= 0)
@@ -56,24 +69,44 @@ public class EnemySpawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (spawnTimer <= 0) 
+        if (spawnTimer <= 0)
         {
             //spawn an enemy
             if (enemiesToSpawn.Count > 0)
-                {
-                    Instantiate(enemiesToSpawn[0], getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
-                    enemiesToSpawn.RemoveAt(0);
-                    spawnTimer = spawnInterval;
-                }
-            else { waveTimer = 0; }
+            {
+                Debug.Log("enemiesToSpawn" + enemiesToSpawn.Count);
+                ObjectPoolingManager.spawnObject(enemiesToSpawn[0], getSpawnPosition(), transform.rotation, ObjectPoolingManager.poolType.Goblin);
+                //Instantiate(enemiesToSpawn[0], getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
+                enemiesToSpawn[0].GetComponent<Enemy>().isDead = false;
+                enemiesToSpawn.RemoveAt(0);
+                spawnTimer = spawnInterval;
             }
+            else
+            {
+                spawnTimer = spawnInterval;
+            }
+        }
         else
-        { 
+        {
             spawnTimer -= Time.fixedDeltaTime;
+        }
+
+        if (waveTimer <= 0)
+        {
+            waveTimer = 120f;
+            spawnTimer = spawnInterval;
+            GenerateWave();
+        }
+        else
+        {
             waveTimer -= Time.fixedDeltaTime;
         }
     }
 
+    private void GenerateBossEnemy()
+    {
+        Instantiate(enemies[2].enemyPrefab, getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
+    }
     Vector3 getSpawnPosition() { 
         float _x = 0f;
         float _y = 0f;

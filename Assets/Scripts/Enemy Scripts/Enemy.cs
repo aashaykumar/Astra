@@ -1,12 +1,12 @@
+using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 using UnityEngine.UI;
-using static Unity.VisualScripting.Member;
 
 public class Enemy : MonoBehaviour
 {
-    private int HP = 100;
-
+    public int HP = 100;
     Quaternion rotation;
     public Slider healthBar;
     public GameObject healthBarCanvas;
@@ -14,8 +14,11 @@ public class Enemy : MonoBehaviour
     public bool isDead = false;
     public GameObject arrowObject;
     public Transform arrowPoint;
+    public EnemyType enemyType;
+    public EnemyAttackType enemyAttackType;
 
-    [SerializeField] private PlayerStats stats;
+    [SerializeField] public EnemyStats enemyStats;
+    [SerializeField] private PlayerStats playerStats;
 
     GameObject gameManager;
     GameManagerScript gameManagerScript;
@@ -23,12 +26,18 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController");
+        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
         rotation = healthBarCanvas.transform.rotation;
     }
-
+    private void Start()
+    {
+        HP = enemyStats.currentHealth;
+        healthBar.value = HP;
+    }
     private void Update()
     {
         healthBar.value = HP;
+
     }
 
     private void LateUpdate()
@@ -38,8 +47,9 @@ public class Enemy : MonoBehaviour
 
     public void FireArrow()
     {
-        GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
-        arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
+        GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.EnemyArrow);
+        //GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
+        obj.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.VelocityChange);
     }
 
     public void TakeDamage(int damageAmount)
@@ -48,18 +58,53 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0 && !isDead)
         {
-            stats.UpdatePlayerStatsOnEnemyKill(1);
-            animator.SetTrigger("die");
+            playerStats.UpdatePlayerStatsOnEnemyKill(1);
             isDead = true;
-            gameManagerScript = gameManager.GetComponent<GameManagerScript>();
-            gameManagerScript.checkforLevelObjective();
-            Destroy(gameObject, 2f);
+            animator.SetTrigger("die");
+            animator.Play("Die");
 
+            //animator.applyRootMotion = false;
+            StartCoroutine(waitForEnemyDie());
+            if (gameManagerScript.GetCurrentLevel() % 3 == 0 && enemyType == EnemyType.Boss)
+            {
+                gameManagerScript.checkforLevelObjective();
+            }
+            else if (gameManagerScript.GetCurrentLevel() % 3 != 0 && enemyType == EnemyType.Swarm)
+                gameManagerScript.checkforLevelObjective();
         }
         else
-        {   
+        {
             animator.SetTrigger("damage");
         }
 
+        IEnumerator waitForEnemyDie()
+        {
+            yield return new WaitForSeconds(2);
+            if (enemyAttackType == EnemyAttackType.Range)
+                UpdateToObjectPool();
+            else
+                Destroy(gameObject);
+        }
+
+    }
+
+    private void UpdateToObjectPool()
+    {
+        this.gameObject.SetActive(false);
+        HP = 100;
+        isDead = false;
+        ObjectPoolingManager.ReturnObjectToPool(gameObject);
+    }
+
+    public enum EnemyAttackType
+    {
+        Range,
+        Meelee
+    }
+
+    public enum EnemyType
+    {
+        Swarm,
+        Boss
     }
 }
