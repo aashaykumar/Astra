@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
             playerStats.UpdatePlayerStatsOnEnemyKill(1);
             isDead = true;
             animator.SetTrigger("die");
+            animator.Play("Die");
 
             //animator.applyRootMotion = false;
             StartCoroutine(waitForEnemyDie());

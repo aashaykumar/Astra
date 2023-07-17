@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 1332212568}
   - component: {fileID: 6061306069311547036}
   - component: {fileID: 1550655541347399587}
+  - component: {fileID: -8653498618855342169}
   m_Layer: 0
   m_Name: devil@idle
   m_TagString: Enemy
@@ -650,8 +651,8 @@ MonoBehaviour:
   isDead: 0
   arrowObject: {fileID: 6518549337392908604}
   arrowPoint: {fileID: 6518549337393206460}
-  attackRange: 0
   enemyType: 1
+  enemyAttackType: 0
   enemyStats: {fileID: 11400000, guid: bf9e43e8aa781f943901d2fa4266ca55, type: 2}
   playerStats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
 --- !u!54 &1550655541347399587
@@ -670,6 +671,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
+--- !u!114 &-8653498618855342169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518549337392908426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115add89437338743a43dceda591ce89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetstats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
+  bossstats: {fileID: 11400000, guid: bf9e43e8aa781f943901d2fa4266ca55, type: 2}
 --- !u!1 &6518549337392908428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetstats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
+  bossstats: {fileID: 0}
 --- !u!1 &6518549337392908606
 GameObject:
   m_ObjectHideFlags: 0

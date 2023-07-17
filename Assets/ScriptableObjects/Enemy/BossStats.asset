@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: BossStats
   m_EditorClassIdentifier: 
   maxHealth: 500
-  currentHealth: 100
-  EnemyLevel: 1
+  currentHealth: 220
+  EnemyLevel: 3
   EnemyMaxLevel: 10
   maxArmor: 20
   ArmorMultiplerPerLevel: 2
   HealthMultiplerPerLevel: 10
-  armor: 0
+  armor: 4
   patrolSpeed: 0.8
   chaseSpeed: 1
   attackDamage: 20

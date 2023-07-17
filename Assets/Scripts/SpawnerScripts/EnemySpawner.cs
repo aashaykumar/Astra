@@ -36,12 +36,12 @@ public class EnemySpawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        waveValue = currentWave * gamelevel;
+        waveValue = currentWave;
         GenerateEnemies();
 
         spawnInterval = waveDuration / enemiesToSpawn.Count;
 
-        waveTimer = 60f;
+        waveTimer = 120f;
     }
 
     public void GenerateEnemies()
@@ -93,7 +93,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (waveTimer <= 0)
         {
-            waveTimer = 60f;
+            waveTimer = 120f;
             spawnTimer = spawnInterval;
             GenerateWave();
         }

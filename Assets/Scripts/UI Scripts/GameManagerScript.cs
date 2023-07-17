@@ -39,6 +39,7 @@ public class GameManagerScript : MonoBehaviour
     private void Awake()
     {
         UpdateGameData();
+        txtTimer.color = Color.white;
         txtcurrentObjective.text = currentObjective.ToString() + "/" + currentLevelObjective.ToString();
         txtTimer.text = "2:00";
     }
@@ -77,6 +78,10 @@ public class GameManagerScript : MonoBehaviour
             int seconds = Mathf.FloorToInt(timer % 60);
             int min = Mathf.FloorToInt(timer / 60);
             txtTimer.text = min.ToString() + ":" + seconds.ToString();
+            if(timer > 0 && timer < 31)
+            {
+                txtTimer.color = Color.red;
+            }
         }
         else if (timer <= 0)
         {

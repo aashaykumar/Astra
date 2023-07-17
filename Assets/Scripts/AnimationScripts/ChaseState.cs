@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,6 +22,8 @@ public class ChaseState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent.SetDestination(player.position);
+        //Vector2 Playerpos =new Vector2(player.position.x, player.position.z);
+        //Vector2 Enemypos =new Vector2(animator.transform.position.x, animator.transform.position.z);
         float distance = Vector2.Distance(player.position, animator.transform.position);
         /*Vector3 direction = player.position - animator.transform.position;
         animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, Quaternion.LookRotation(direction.normalized), 0.9f);
