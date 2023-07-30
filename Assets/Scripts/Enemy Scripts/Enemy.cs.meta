@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 5f0868f73cebb5843b2dffe3d9985c54
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - healthBar: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - arrowObject: {instanceID: 0}
+  - arrowPoint: {instanceID: 0}
+  - resultScreen: {fileID: 1517525882625234660, guid: 48ab47e18f4d2e84c8459e2c5a3e57e5,
+      type: 3}
+  - mainMenuScreen: {fileID: 3778289166331380992, guid: e05c89513581c384c9efba6536764c13,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

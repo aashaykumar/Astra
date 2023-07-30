@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6708736a76d4c44b6e837c44984a85, type: 3}
+  m_Name: PlayerStats
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  currentHealth: 100
+  playerLevel: 1
+  playerMaxLevel: 10
+  playerTempXP: 0
+  playerMaxXpPerLevel: 150
+  playerCurrentXP: 0
+  maxArmor: 50
+  armor: 0
+  playerAccuracy: 0
+  playerKDA: 0
+  totalEnemyKillCount: 0
+  totalArrowFired: 0
+  totalArrowHitEnemy: 0
+  totalPlayerDeathCount: 0
+  totalGoldCoin: 0
+  GameCurrentLevel: 1
