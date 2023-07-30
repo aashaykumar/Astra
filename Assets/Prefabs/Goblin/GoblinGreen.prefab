@@ -1515,8 +1515,8 @@ MonoBehaviour:
   arrowObject: {fileID: 1665844716331944833, guid: 217ecd216478b0841805c2b35971dce2,
     type: 3}
   arrowPoint: {fileID: 8980390744224071221}
-  attackRange: 0
   enemyType: 0
+  enemyAttackType: 0
   enemyStats: {fileID: 11400000, guid: 32fed0bf8f1cb154cbd66cfc5751268e, type: 2}
   playerStats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
 --- !u!54 &624328044039822579

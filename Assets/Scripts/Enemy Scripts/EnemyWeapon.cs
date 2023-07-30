@@ -11,7 +11,6 @@ public class EnemyWeapon : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Enemy Weapon Damage");
             targetstats.TakeDamage(bossstats.attackDamage);
         }
     }

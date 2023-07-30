@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -74,7 +73,6 @@ public class EnemySpawner : MonoBehaviour
             //spawn an enemy
             if (enemiesToSpawn.Count > 0)
             {
-                Debug.Log("enemiesToSpawn" + enemiesToSpawn.Count);
                 ObjectPoolingManager.spawnObject(enemiesToSpawn[0], getSpawnPosition(), transform.rotation, ObjectPoolingManager.poolType.Goblin);
                 //Instantiate(enemiesToSpawn[0], getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
                 enemiesToSpawn[0].GetComponent<Enemy>().isDead = false;
@@ -105,7 +103,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void GenerateBossEnemy()
     {
-        Instantiate(enemies[2].enemyPrefab, getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
+        ObjectPoolingManager.spawnObject(enemies[2].enemyPrefab, getSpawnPosition(), transform.rotation, ObjectPoolingManager.poolType.Boss);
+        //GameObject boss = Instantiate(enemies[2].enemyPrefab, getSpawnPosition(), Quaternion.EulerAngles(0f, 0f, 0f));
     }
     Vector3 getSpawnPosition() { 
         float _x = 0f;

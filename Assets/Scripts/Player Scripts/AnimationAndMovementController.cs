@@ -7,7 +7,6 @@ public class AnimationAndMovementController : MonoBehaviour
 {
     PlayerInput playerInput;
 
-
     [SerializeField]
     private float playerSpeed = 2f;
     [SerializeField]
@@ -26,10 +25,7 @@ public class AnimationAndMovementController : MonoBehaviour
     public Transform arrowPoint;
 
     bool isMovementPressed = false;
-    bool isAiming;
-    float rotationFactorPerFrame = 1f;
-    float speed = 1f;
-
+    float shootDelay = 1.5f;
     CharacterController characterController;
     Animator animator;
     [SerializeField] private PlayerStats stats;
@@ -59,7 +55,7 @@ public class AnimationAndMovementController : MonoBehaviour
                     StopCoroutine(coroutine);
                     animator.SetBool("isWalking", false);
                 }
-                if (hit.collider.gameObject.tag == "Enemy")
+                /*if (hit.collider.gameObject.tag == "Enemy")
                 {
                     if (!hit.collider.GetComponent<Enemy>().isDead)
                     {
@@ -68,11 +64,12 @@ public class AnimationAndMovementController : MonoBehaviour
                         //animator.SetBool("isWalking", false);
                         animator.SetBool("isShooting", true);
                     }
-                }
-                else if (hit.collider.gameObject.tag == "Ground")
+                }*/
+               if (hit.collider.gameObject.tag == "Ground")
                 {
                     targetPosition = hit.point;
                     isMovementPressed = true;
+                    //bjectPoolingManager.GetNearestEnemy();
                 }
             }
         }
@@ -83,6 +80,21 @@ public class AnimationAndMovementController : MonoBehaviour
         {
             PlayerMoveTowards(targetPosition);
         }
+
+        if (shootDelay <= 0)
+        {
+            Vector3 enemyPos = ObjectPoolingManager.GetNearestEnemy(transform.position);
+            if ( enemyPos != Vector3.zero)
+            {
+                isMovementPressed = false;
+                handleRotation(enemyPos);
+                //animator.SetBool("isWalking", false);
+                animator.SetBool("isShooting", true);
+            }
+            shootDelay = 1.5f;
+        }
+        else
+            shootDelay -= Time.deltaTime;
     }
 
     public void PlayerMoveTowards(Vector3 target)

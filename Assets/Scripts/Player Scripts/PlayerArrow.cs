@@ -7,6 +7,8 @@ public class PlayerArrow : MonoBehaviour
 {
     Vector3 pos;
     [SerializeField] private PlayerStats stats;
+    [SerializeField] private Arrow arrowStats;
+
     public int damage = 50;
 
     private void LateUpdate()
@@ -16,6 +18,13 @@ public class PlayerArrow : MonoBehaviour
 
     private void Awake()
     {
+        if (arrowStats.currentArrowEffect != Arrow.ArrowEffectType.Normal)
+        {
+            string vfxString = arrowStats.GetTypeString(arrowStats.currentArrowEffect);
+            GameObject vfx = transform.Find(vfxString).gameObject;
+            vfx.SetActive(true);
+            //arrowStats.GetVFX(arrowStats.currentArrowEffect).transform.SetParent(gameObject.transform);
+        }
         
     }
     private void checkForOutsideBoundary()

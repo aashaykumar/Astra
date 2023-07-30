@@ -13,12 +13,14 @@ public class ObjectPoolingManager : MonoBehaviour
     private static GameObject enemyPoolHolder;
     private static GameObject playerArrowPoolHolder;
     private static GameObject enemyArrowPoolHolder;
+    private static GameObject bossPoolHolder;
 
     public enum poolType
     {
         PlayerArrow,
         Goblin,
         EnemyArrow,
+        Boss,
         none
     }
     public static poolType poolingType;
@@ -39,7 +41,10 @@ public class ObjectPoolingManager : MonoBehaviour
         enemyArrowPoolHolder.transform.SetParent(objectPoolHolder.transform);
 
         enemyPoolHolder = new GameObject("Enemy Pool");
-        enemyPoolHolder.transform.SetParent(objectPoolHolder.transform);
+        enemyPoolHolder.transform.SetParent(objectPoolHolder.transform); 
+        
+        bossPoolHolder = new GameObject("Boss Pool");
+        bossPoolHolder.transform.SetParent(objectPoolHolder.transform);
     }
 
     public static GameObject spawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, poolType poolType = poolType.none)
@@ -94,19 +99,59 @@ public class ObjectPoolingManager : MonoBehaviour
         {
             case poolType.PlayerArrow:
                 return playerArrowPoolHolder;
-
             case poolType.Goblin:
                 return enemyPoolHolder;
-
             case poolType.EnemyArrow:
                 return enemyArrowPoolHolder;
-
+            case poolType.Boss: 
+                return bossPoolHolder;
             case poolType.none:
                 return null;
-
             default: 
                 return null;
         }
+    }
+
+    public static Vector3 GetNearestEnemy(Vector3 playerPos)
+    {
+        Vector3 nearestPos = Vector3.zero;
+        float minDistance = 100000f;
+        if (enemyPoolHolder != null)
+        {
+            int count = enemyPoolHolder.transform.childCount;
+            for (int i = 0; i < count; i++)
+            {
+                Transform childObj = enemyPoolHolder.transform.GetChild(i);
+                if (childObj != null && childObj.gameObject.activeSelf && !childObj.gameObject.GetComponent<Enemy>().isDead)
+                {
+                    if (Vector3.Distance(childObj.transform.position, playerPos) <= minDistance)
+                    {
+                        minDistance = Vector3.Distance(childObj.gameObject.transform.position, playerPos);
+                        nearestPos = childObj.gameObject.transform.position;
+                    }
+                }
+            }
+        }
+
+        if(bossPoolHolder != null) 
+        {
+            int count = bossPoolHolder.transform.childCount;
+            Debug.Log("boss Count" + count);
+            for (int i = 0; i < count; i++)
+            {
+                Transform childObj = bossPoolHolder.transform.GetChild(i);
+                if (childObj != null && childObj.gameObject.activeSelf)
+                {
+                    if (Vector3.Distance(childObj.transform.position, playerPos) <= minDistance)
+                    {
+                        minDistance = Vector3.Distance(childObj.gameObject.transform.position, playerPos);
+                        nearestPos = childObj.gameObject.transform.position;
+                    }
+                }
+            }
+            return nearestPos; 
+        }
+        return nearestPos;
     }
 }
 

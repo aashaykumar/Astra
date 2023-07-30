@@ -2388,7 +2388,7 @@ MonoBehaviour:
       Touchscreen/press]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: c2cec74b-c481-41e0-b08d-6566d1b7cb31
+  m_DefaultActionMap: Touch
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1558777974653559305
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 2
   rotationSpeed: 3
-  arrowForce: 20
+  arrowForce: 14
   arrowObject: {fileID: 1665844716331944833, guid: 68e6ff568e4ac98428a8a541cd183a41,
     type: 3}
   arrowPoint: {fileID: 3083165029985706004}
