@@ -33,7 +33,6 @@ public class StoreManager : MonoBehaviour
         int index = 0;
         foreach (ArrowEffectType arrow in storeList)
         {
-            Debug.Log(storeList);
             CreateItemButton(arrow, arrowEffect.GetSprite(arrow), arrowEffect.GetName(arrow), arrowEffect.GetCost(arrow), index);
             index++;
         }

@@ -8,11 +8,11 @@ public class AnimationAndMovementController : MonoBehaviour
     PlayerInput playerInput;
 
     [SerializeField]
-    private float playerSpeed = 2f;
+    private float playerSpeed = 5f;
     [SerializeField]
     private float rotationSpeed = 3f;
-    [SerializeField]
-    private float arrowForce = 10f;
+
+    private float arrowForce = 15f;
 
     Vector3 targetPosition;
 
@@ -69,7 +69,6 @@ public class AnimationAndMovementController : MonoBehaviour
                 {
                     targetPosition = hit.point;
                     isMovementPressed = true;
-                    //bjectPoolingManager.GetNearestEnemy();
                 }
             }
         }
@@ -88,7 +87,6 @@ public class AnimationAndMovementController : MonoBehaviour
             {
                 isMovementPressed = false;
                 handleRotation(enemyPos);
-                //animator.SetBool("isWalking", false);
                 animator.SetBool("isShooting", true);
             }
             shootDelay = 1.5f;
@@ -97,6 +95,7 @@ public class AnimationAndMovementController : MonoBehaviour
             shootDelay -= Time.deltaTime;
     }
 
+    //Player movement
     public void PlayerMoveTowards(Vector3 target)
     {
         float playerDistanceToFloor = transform.position.y - target.y;
@@ -116,6 +115,7 @@ public class AnimationAndMovementController : MonoBehaviour
         }
     }
 
+    //Player rotation update on movement
     public void handleRotation(Vector3 target)
     {
         float playerDistanceToFloor = transform.position.y - target.y;
@@ -134,20 +134,13 @@ public class AnimationAndMovementController : MonoBehaviour
         touchPressAction.performed -= onMovementInput;
     }
 
+    // Player shoot arrow
     public void Shoot()
     {
         GameObject obj = ObjectPoolingManager.spawnObject(arrowObject, arrowPoint.position, transform.rotation, ObjectPoolingManager.poolType.PlayerArrow);
-        //GameObject arrow = Instantiate(arrowObject, arrowPoint.position, transform.rotation);
         obj.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce, ForceMode.VelocityChange);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
         stats.UpdateArrowCount();
     }
-
-    /*private void OnDrawGizmos()
-     {
-         Gizmos.color = Color.yellow;
-         Gizmos.DrawSphere(targetPosition, 1);
-     }*/
-
 }

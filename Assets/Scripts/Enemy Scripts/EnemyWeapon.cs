@@ -6,12 +6,24 @@ public class EnemyWeapon : MonoBehaviour
 {
     [SerializeField] private PlayerStats targetstats;
     [SerializeField] private EnemyStats bossstats;
+    private Animator animator;
+    private AnimatorStateInfo enemyAnim;
+
+    private void Awake()
+    {
+        animator = GetComponentInParent<Animator>();
+        enemyAnim = animator.GetCurrentAnimatorStateInfo(0);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (animator != null)
         {
-            targetstats.TakeDamage(bossstats.attackDamage);
+            enemyAnim = animator.GetCurrentAnimatorStateInfo(0);
+            if (other.tag == "Player" && enemyAnim.IsName("AttackState"))
+            {
+                targetstats.TakeDamage(bossstats.attackDamage);
+            }
         }
     }
 }

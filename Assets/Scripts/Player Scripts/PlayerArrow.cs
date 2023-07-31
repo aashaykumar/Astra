@@ -9,8 +9,8 @@ public class PlayerArrow : MonoBehaviour
     [SerializeField] private PlayerStats stats;
     [SerializeField] private Arrow arrowStats;
 
-    public int damage = 50;
-
+    private int damage = 15;
+    private GameObject vfx;
     private void LateUpdate()
     {
         checkForOutsideBoundary();
@@ -21,8 +21,9 @@ public class PlayerArrow : MonoBehaviour
         if (arrowStats.currentArrowEffect != Arrow.ArrowEffectType.Normal)
         {
             string vfxString = arrowStats.GetTypeString(arrowStats.currentArrowEffect);
-            GameObject vfx = transform.Find(vfxString).gameObject;
+            vfx = transform.Find(vfxString).gameObject;
             vfx.SetActive(true);
+            damage = arrowStats.GetDamge(arrowStats.currentArrowEffect);
             //arrowStats.GetVFX(arrowStats.currentArrowEffect).transform.SetParent(gameObject.transform);
         }
         
@@ -38,6 +39,15 @@ public class PlayerArrow : MonoBehaviour
             
             //Destroy(gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        if(vfx != null)
+        {
+            vfx.SetActive(true);
+        }
+        damage = arrowStats.GetDamge(arrowStats.currentArrowEffect);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -5571,15 +5571,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0868f73cebb5843b2dffe3d9985c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
   healthBar: {fileID: 1973778554}
   healthBarCanvas: {fileID: 1597577256}
   animator: {fileID: 6518549337402309466}
   isDead: 0
   arrowObject: {fileID: 6518549337392908604}
   arrowPoint: {fileID: 6518549337393206460}
-  enemyType: 1
-  enemyAttackType: 0
   enemyStats: {fileID: 11400000, guid: bf9e43e8aa781f943901d2fa4266ca55, type: 2}
   playerStats: {fileID: 11400000, guid: d991253c79701654897ae8331f77e55d, type: 2}
 --- !u!54 &1550655541347399587
@@ -5596,7 +5593,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 68
   m_CollisionDetection: 0
 --- !u!114 &-8653498618855342169
 MonoBehaviour:

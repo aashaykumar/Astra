@@ -55,6 +55,20 @@ public class Arrow : ScriptableObject
         }
     }
 
+    public int GetDamge(ArrowEffectType arrowEffectType)
+    {
+        switch (arrowEffectType)
+        {
+            default:
+            case ArrowEffectType.Normal: return 10;
+            case ArrowEffectType.Fire: return 15;
+            case ArrowEffectType.Ice: return 25;
+            case ArrowEffectType.Water: return 30;
+            case ArrowEffectType.Wind: return 40;
+            case ArrowEffectType.Void: return 100;
+        }
+    }
+
     public GameObject GetVFX(ArrowEffectType arrowEffectType)
     {
         switch (arrowEffectType)

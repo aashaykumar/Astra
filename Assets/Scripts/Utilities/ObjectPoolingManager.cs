@@ -87,7 +87,6 @@ public class ObjectPoolingManager : MonoBehaviour
 
         if (pool != null) 
         { 
-            Debug.Log("object set Inactive");
             obj.SetActive(false);
             pool.Inactiveobjects.Add(obj);
         }
@@ -136,7 +135,6 @@ public class ObjectPoolingManager : MonoBehaviour
         if(bossPoolHolder != null) 
         {
             int count = bossPoolHolder.transform.childCount;
-            Debug.Log("boss Count" + count);
             for (int i = 0; i < count; i++)
             {
                 Transform childObj = bossPoolHolder.transform.GetChild(i);

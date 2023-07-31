@@ -7,15 +7,17 @@ public class EnemyStats : ScriptableObject
     public int maxHealth = 200;
     public int currentHealth = 100;
     public int EnemyLevel = 1;
-    public int EnemyMaxLevel = 10;
-    public int maxArmor = 20;
+    public int EnemyMaxLevel = 4;
+    public int maxArmor = 10;
     public int ArmorMultiplerPerLevel = 2;
     public int HealthMultiplerPerLevel = 10;
     public int armor = 0;
-    public float patrolSpeed = 0.5f;
-    public float chaseSpeed = 1f;
-    public int attackDamage = 10;
-    public float attackRange = 6;
+    public float patrolSpeed = 1.2f;
+    public float chaseSpeed = 1.4f;
+    public int attackDamage = 5;
+    public float attackRange = 5;
+    public EnemyAttackType attackType;
+    public EnemyType enemyType;
 
     public int Health
     {
@@ -54,14 +56,26 @@ public class EnemyStats : ScriptableObject
         maxHealth = 200;
         currentHealth = 100;
         EnemyLevel = 1;
-        EnemyMaxLevel = 10;
-        maxArmor = 20;
+        EnemyMaxLevel = 4;
+        maxArmor = 10;
         ArmorMultiplerPerLevel = 2;
         HealthMultiplerPerLevel = 10;
         armor = 0;
-        patrolSpeed = 0.5f;
-        chaseSpeed = 1f;
-        attackDamage = 10;
-        attackRange = 6;
+        patrolSpeed = 1.2f;
+        chaseSpeed = 1.4f;
+        attackDamage = 5;
+        attackRange = 5;
+    }
+
+    public enum EnemyAttackType
+    {
+        Range,
+        Meelee
+    }
+
+    public enum EnemyType
+    {
+        Swarm,
+        Boss
     }
 }

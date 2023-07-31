@@ -4,14 +4,14 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "PlayerStats", menuName = "ScriptableObjects/Player")]
 public class PlayerStats : ScriptableObject
 {
-    public int maxHealth = 200;
+    public int maxHealth = 500;
     public int currentHealth = 100;
     public int playerLevel = 1;
     public int playerMaxLevel = 10;
     public int playerTempXP = 0;
     public int playerMaxXpPerLevel = 150;
     public int playerCurrentXP = 0;
-    public int maxArmor = 50;
+    public int maxArmor = 12;
     public int armor = 5;
     public float playerAccuracy = 0;
     public float playerKDA = 0;
@@ -148,7 +148,6 @@ public class PlayerStats : ScriptableObject
         PlayerPrefs.SetInt("TotalPlayerDeathCount", totalPlayerDeathCount);
         PlayerPrefs.Save();
         CalculateKDA();
-
     }
 
     public void UpdatePlayerStatsOnEnemyKill(int Enemycost)
@@ -180,8 +179,8 @@ public class PlayerStats : ScriptableObject
             {
                 playerTempXP = playerTempXP - (playerMaxXpPerLevel - playerCurrentXP);
                 playerLevel = playerLevel + 1;
-                currentHealth = (currentHealth + playerLevel * 20) >= maxHealth ? maxHealth : (currentHealth + playerLevel * 20);
-                armor = (playerLevel * 5) >= maxArmor ? maxArmor : (playerLevel * 5);
+                currentHealth = (currentHealth + playerLevel * 100) >= maxHealth ? maxHealth : (currentHealth + playerLevel * 40);
+                armor = (playerLevel * 2) >= maxArmor ? maxArmor : (playerLevel * 2);
                 playerMaxXpPerLevel = (playerMaxXpPerLevel * gameLevel);
 
                 PlayerPrefs.SetInt("PlayerLevel", playerLevel);
@@ -213,15 +212,15 @@ public class PlayerStats : ScriptableObject
 
     public void ResetPlayerAllStats()
     {
-        maxHealth = 200;
+        maxHealth = 500;
         currentHealth = 100;
         playerLevel = 1;
         playerMaxLevel = 10;
         playerTempXP = 0;
         playerMaxXpPerLevel = 150;
         playerCurrentXP = 0;
-        maxArmor = 50;
-        armor = 5;
+        maxArmor = 12;
+        armor = 0;
         playerAccuracy = 0;
         playerKDA = 0;
         totalEnemyKillCount = 0;

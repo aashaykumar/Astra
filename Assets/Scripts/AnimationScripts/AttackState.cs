@@ -23,6 +23,7 @@ public class AttackState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        agent.speed = 0;
         bool isdead = animator.GetComponentInParent<Enemy>().isDead;
         if (isdead)
         {
@@ -31,7 +32,7 @@ public class AttackState : StateMachineBehaviour
 
         if (player != null) {
             Vector3 direction = player.position - animator.transform.position;
-            animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, Quaternion.LookRotation(direction.normalized), 2f * Time.deltaTime);
+            animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, Quaternion.LookRotation(direction.normalized), 5f * Time.deltaTime);
 
             float distance = Vector3.Distance(player.position, animator.transform.position);
             if (distance > AttackRange)

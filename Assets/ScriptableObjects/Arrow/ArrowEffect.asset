@@ -30,7 +30,7 @@ MonoBehaviour:
   voidSprite: {fileID: 2800000, guid: d50274704b10fb54a89ffa3875819ad3, type: 3}
   fireArrowPurchaseStatus: 0
   iceArrowPurchaseStatus: 0
-  waterArrowPurchaseStatus: 1
-  windArrowPurchaseStatus: 1
+  waterArrowPurchaseStatus: 0
+  windArrowPurchaseStatus: 0
   voidArrowPurchaseStatus: 0
-  currentArrowEffect: 3
+  currentArrowEffect: 0

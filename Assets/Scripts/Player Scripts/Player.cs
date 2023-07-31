@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController");
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
-        //playerMaxXpPerLevel = gameManagerScript.GetCurrentLevel() * playerMaxXpPerLevel;
         animator = GetComponent<Animator>();
     }
 

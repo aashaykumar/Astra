@@ -51,7 +51,7 @@ public class GameManagerScript : MonoBehaviour
         if (currentLevel % 3 == 0)
         {
             currentLevelObjective = 1;
-            bossStats.UpdateEnemyStats(currentLevel);
+            bossStats.UpdateEnemyStats(currentLevel/3);
         }
         else
             currentLevelObjective = currentLevel + 1;
